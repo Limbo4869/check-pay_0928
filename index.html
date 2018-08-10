@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<!-- manifest="index.appcache" -->
+<head>
+  <title>加载中...</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <meta name="renderer" content="webkit"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <meta name="x5-fullscreen" content="true">
+  <meta name="full-screen" content="yes">
+  <meta name="viewport"
+        content="maximum-scale=1.0,minimum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=0,user-scalable=no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!--<script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>-->
+
+  <style type="text/css">
+    #_gLoading {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      margin-top: 0px;
+      top: 0px;
+    }
+
+    #_gLoading-center {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    #_gLoading-center-absolute {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 60px;
+      width: 60px;
+      margin-top: -30px;
+      margin-left: -30px;
+      -webkit-animation: loading-center-absolute 1s infinite;
+      animation: loading-center-absolute 1s infinite;
+
+    }
+
+    .loading_obj {
+      width: 20px;
+      height: 20px;
+      background-color: #2090F6;
+      float: left;
+      -moz-border-radius: 50% 50% 50% 50%;
+      -webkit-border-radius: 50% 50% 50% 50%;
+      border-radius: 50% 50% 50% 50%;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    .loading_obj:nth-child(2n+0) {
+      margin-right: 0px;
+
+    }
+
+    .loading_obj_one {
+      -webkit-animation: loading_obj_one 1s infinite;
+      animation: loading_obj_one 1s infinite;
+    }
+
+    .loading_obj_two {
+      -webkit-animation: loading_obj_two 1s infinite;
+      animation: loading_obj_two 1s infinite;
+    }
+
+    .loading_obj_three {
+      -webkit-animation: loading_obj_three 1s infinite;
+      animation: loading_obj_three 1s infinite;
+    }
+
+    .loading_obj_four {
+      -webkit-animation: loading_obj_four 1s infinite;
+      animation: loading_obj_four 1s infinite;
+    }
+
+    @-webkit-keyframes loading-center-absolute {
+      100% {
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+
+    }
+
+    @keyframes loading-center-absolute {
+      100% {
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes loading_obj_one {
+      50% {
+        -ms-transform: translate(20px, 20px);
+        -webkit-transform: translate(20px, 20px);
+        transform: translate(20px, 20px);
+      }
+    }
+
+    @keyframes loading_obj_one {
+      50% {
+        transform: translate(20px, 20px);
+      }
+    }
+
+    @-webkit-keyframes loading_obj_two {
+      50% {
+        -ms-transform: translate(-20px, 20px);
+        -webkit-transform: translate(-20px, 20px);
+        transform: translate(-20px, 20px);
+      }
+    }
+
+    @keyframes loading_obj_two {
+      50% {
+        -ms-transform: translate(-20px, 20px);
+        -webkit-transform: translate(-20px, 20px);
+        transform: translate(-20px, 20px);
+      }
+    }
+
+    @-webkit-keyframes loading_obj_three {
+      50% {
+        -ms-transform: translate(20px, -20px);
+        -webkit-transform: translate(20px, -20px);
+        transform: translate(20px, -20px);
+      }
+    }
+
+    @keyframes loading_obj_three {
+      50% {
+        -ms-transform: translate(20px, -20px);
+        -webkit-transform: translate(20px, -20px);
+        transform: translate(20px, -20px);
+      }
+    }
+
+    @-webkit-keyframes loading_obj_four {
+      50% {
+        -ms-transform: translate(-20px, -20px);
+        -webkit-transform: translate(-20px, -20px);
+        transform: translate(-20px, -20px);
+      }
+    }
+
+    @keyframes loading_obj_four {
+      50% {
+        -ms-transform: translate(-20px, -20px);
+        -webkit-transform: translate(-20px, -20px);
+        transform: translate(-20px, -20px);
+      }
+    }
+  </style>
+  <!--<link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>-->
+  <!--<script type="text/javascript" charset="UTF-8" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+  <!--<script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js"></script>-->
+  <!--<script>
+    window['_GLOBAL'] = {123:123};
+  </script>-->
+</head>
+<body>
+<div id="_gLoading">
+  <div id="_gLoading-center">
+    <div id="_gLoading-center-absolute">
+      <div class="loading_obj loading_obj_one"></div>
+      <div class="loading_obj loading_obj_two"></div>
+      <div class="loading_obj loading_obj_three"></div>
+      <div class="loading_obj loading_obj_four"></div>
+    </div>
+  </div>
+</div>
+<div id="app"></div>
+
+<!-- built files will be auto injected -->
+</body>
+</html>

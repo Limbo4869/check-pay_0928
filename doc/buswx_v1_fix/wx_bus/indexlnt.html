@@ -1,0 +1,715 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=js/mobiscroll/device-width, initial-scale=1, maximum-scale=1" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>购票主页</title>
+    <link rel="stylesheet" href="/addons/nanyuetong/template/css/font-awesome.min.css?ver={$pagever}" type="text/css" />
+    <link rel="stylesheet" href="/addons/nanyuetong/template/css/simple-line-icons.css?ver={$pagever}" type="text/css" />
+    <link rel="stylesheet" href="/addons/nanyuetong/template/css/font.css?ver={$pagever}" type="text/css" />
+    <link rel="stylesheet" href="/addons/nanyuetong/template/css/ticket.css?ver={$pagever}" type="text/css" />
+    <!-- Icon -->
+    <link rel="stylesheet" href="/addons/nanyuetong/template/css/font-awesome.min.css?ver={$pagever}" type="text/css" />
+    <link rel="stylesheet" href="/addons/nanyuetong/template/css/simple-line-icons.css?ver={$pagever}" type="text/css" />
+    <link rel="stylesheet" href="/addons/nanyuetong/template/css/font.css?ver={$pagever}" type="text/css" />
+    <link rel="stylesheet" href="/addons/nanyuetong/template/css/ionicons.min.css?ver={$pagever}" type="text/css" />
+    <!-- Bootstrap -->
+    <link href="/addons/nanyuetong/template/css/bootstrap.min.css?ver={$pagever}" rel="stylesheet">
+    <link href="/addons/nanyuetong/template/css/app.css?ver={$pagever}" rel="stylesheet">
+    <!-- <link href="/addons/nanyuetong/template/css/jquery-ui.min.css?ver={$pagever}" rel="stylesheet">-->
+    <link href="/addons/nanyuetong/template/css/bootstrap-datetimepicker.css?ver={$pagever}" rel="stylesheet" media="screen">
+
+    <script src="/addons/nanyuetong/template/js/jquery.min.js"></script>
+	<script src="/addons/nanyuetong/template/js/jquery.cookie.js"></script>
+	<script src="/addons/nanyuetong/template/js/dateUtil.js"></script>
+	
+	<script type="text/javascript" src="/addons/nanyuetong/template/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/addons/nanyuetong/template/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+	<style>
+        .wh-0{
+            width: 0px !important;
+            height: 0px !important;
+
+        }
+        .table-condensed,.datetimepicker-days{
+            width:320px;
+        }
+        .datetimepicker{
+            width:330px;
+        }
+    </style>
+</head>
+<body>
+<div class="hbox bg-purple text-center padder-v text-lg">
+    <div class="col l-h-1x">
+        <span class="text-white">广东联网售票</span>
+    </div>
+</div>
+
+<?php 
+	if(empty($linksource)){ 
+?>
+<div class="hbox  text-md b-b b-muted-lter shadow">
+    <a class="col b-b b-2x b-purple text-center v-middle p-t-16x p-b-14x text-purple l-h-1x">
+        购票查询
+    </a>
+    <a class="col   b-purple text-center v-middle p-t-16x p-b-14x text-gruy l-h-1x" href="{php echo $this->createMobileUrl('pages', array('linksource' => $linksource,'ch' => $channel, 'pages' => 'stationsquery', 'm' => 'stationsquery', 'weid' => $_W['weid']))}">
+        车站查询
+    </a> 
+</div>
+<?php 
+	}else{
+?>
+<div class="hbox  text-md b-b b-muted-lter shadow">
+    <a class="col b-b b-2x b-purple text-center v-middle p-t-16x p-b-14x text-purple l-h-1x">
+        购票查询
+    </a>
+    <a class="col   b-purple text-center v-middle p-t-16x p-b-14x text-gruy l-h-1x" >
+        车站查询
+    </a> 
+</div>
+<?php 
+	}
+?>
+
+
+<?php 
+	if($linksource=="xndyg"){ 
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="M7K005" name="梅州">兴宁市东岳宫汽车客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else if($linksource=="sgxfkyz"){
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="F7K001" name="韶关">韶关新丰汽车客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else if($linksource=="jyhlkyz"){
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="V4K001" name="揭阳">惠来汽车客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else if($linksource=="fsgmkyz"){
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="E4K014" name="佛山">佛山高明汽车客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else if($linksource=="mxxcsfkyz"){
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="M2K007" name="梅州">梅县新城汽车客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else if($linksource=="yunfu_kyz"){
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="W1K001" name="云浮">云浮汽车客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else if($linksource=="huazhou_kyz"){
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="K5K003" name="茂名">化州河西汽车客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else if($linksource=="sw_xy_kyz"){
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="N1K014" name="汕尾">霞洋汽车客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else if($linksource=="yunfu_cx_kyz"){
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="W1K004" name="云浮">云浮城西客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else  if($linksource=="shantou_qs_kyz"){
+?>
+<a class="hbox p-l-lg " href="javascript:void(0);">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="D1K013" name="汕头">汕头岐山客运站</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}else{
+?>
+<a class="hbox p-l-lg " href="{php echo $this->createMobileUrl('pages', array( 'linksource' => $linksource,'scenetype' => $scenetype,'scenesn' => $scenesn,'ctype' => '0', 'ch' => $channel, 'pages' => 'stations', 'weid' => $_W['weid']))}">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-07.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="startstation" code="" name="">选择出发城市</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<?php 
+	}
+?>
+
+
+
+
+<!--上下箭头图标插入,用于调换出发城市和目的地
+<div style="position:relative;top:-25px;height:0px;text-align:center">
+    <img src="/addons/nanyuetong/template/img/ic_@3x__goupiao_qiehuan.png" style="height:50px;position:relative;" onClick="changeStartAndDst();"/>
+</div>
+-->
+<a class="hbox p-l-lg " href="{php echo $this->createMobileUrl('pages', array( 'linksource' => $linksource,'scenetype' => $scenetype,'scenesn' => $scenesn,'noother' => $noother,'ctype' => '1', 'ch' => $channel, 'pages' => 'dstcounty', 'weid' => $_W['weid']))}">
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-08.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">目的城市</span>
+    </div>
+    <div class="col p-r p-t-25x p-b-25x b-b text-right">
+        <span class=" text-md m-r" id="desstation" code="">选择目的城市</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+    </div>
+</a>
+<a class="hbox p-l-lg " href="javascript:void(0);" >
+    <div class="col p-t-25x p-b-25x  b-b b-muted-lter col-md">
+        <img src="/addons/nanyuetong/template/img/ic-09.png" class="w-15x h-15x m-t-n-4x">
+        <span class="m-l-xs text-gruy text-md">出发日期</span>
+    </div>
+   
+    <div class="col p-r p-t-25x p-b-25x b-b text-right" onclick="chooseDate()">
+        <span id="showDateDiv" class="text-md m-r" code="">2015-05-05（今天）</span>
+        <i class="text-gruy ion-ios-arrow-right text-lg l-h-0x"></i>
+        <div class="control-group wh-0" style="width: 0px;height: 0px">
+            <div   class="controls wh-0 input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                <input  id="date" size="16" class="wh-0 no-border" type="text" value="" readonly>
+                <span class="add-on wh-0"><i class="icon-remove wh-0"></i></span>
+                <span class="add-on wh-0"><i class="icon-th wh-0"></i></span>
+            </div>
+        </div>
+    </div>
+    
+</a>
+<div class="hbox p-l-8x p-r-8x" style="margin-top: 25px;">
+    <a class="col bg-orange lt text-center v-middle text-md text-white p-t-9x p-b-9x r-2x submitbtn" href="javascript:void(0);">
+        查询
+    </a>
+</div>
+
+
+<?php 
+$ttt=time(); 
+$ttnowtime=date("Y-m-d H:i:s",$ttt);
+$ttstarttime='2017-08-16 00:00:00';
+$ttendtime='2017-08-18 20:01:00';
+if($ttnowtime>=$ttstarttime&&$ttnowtime<=$ttendtime)
+{
+ ?>
+<div style="margin-top:10px;">
+<font size="3" color="#FF0000"> 
+<marquee scrollamount="3" behavior="scroll">尊敬的各位旅客：因系统维护，8月17日8:00-20:00，广东联网售票服务渠道可能出现购票缓慢情况，为了不耽误您的出行，请提前做好购票准备，对此造成的不便敬请谅解。特此公告！</marquee> 
+</font> 
+</div> 
+<?php } ?>
+
+
+
+<?php 
+$tttt=time(); 
+$tttnowtime=date("Y-m-d H:i:s",$tttt);
+$tttstarttime='2016-09-30 00:00:00';
+$tttendtime='2016-10-08 00:00:00';
+if($tttnowtime>=$tttstarttime&&$tttnowtime<=$tttendtime)
+{
+ ?>
+<?php 
+	if($linksource==""){ 
+?>
+<div style="margin-top:10px;">
+<a href='http://www.gdnyt.cn/nytgq/indexgq.php'>
+<font size="3" color="##FFB849"> 
+<marquee scrollamount="3" behavior="scroll">参与国庆游戏，赢取优惠券及免费乘车奖励！</marquee> 
+</font> 
+</a>
+</div> 
+<?php 
+	}
+?>
+<?php } ?>
+
+<?php if(!empty($historyQuerycity)){$k=0;?>
+    <!--新增历史查询-->
+    <div class="hbox  text-md " style="margin-top:20px;">
+        <div class="col"></div>
+        <div class="col" style="border-top:#ccc 1px solid;"></div>
+        <div class="col" style=" color:#c1c1c1; font-size:11px; text-align:center; position:relative;top:-8px">历史查询</div>
+        <div class="col" style="border-top:#ccc 1px solid;"></div>
+       <div class="col"></div>
+    </div>
+    
+	{loop $historyQuerycity $row}
+		<?php  $k++;if($k < 4){ ?>
+        	<div style="text-align:center;margin-bottom:5px;" onclick="selectCity('<?php echo $row->scity; ?>','<?php echo $row->dcity; ?>','<?php echo $row->stationname; ?>','<?php echo $row->station; ?>');">
+        		<span style="font-size:14px;color:#869bb1;"><?php echo $row->stationname?$row->stationname:$row->scity; ?></span>
+            	<span style="font-size:11px;color:#c1c1c1;">到</span>
+            	<span style="font-size:14px;color:#869bb1;"><?php echo $row->dcity; ?></span>
+            </div>
+        <?php  } ?>
+	{/loop}
+<?php } ?>
+
+<!--
+<div class="hbox  text-md " style="margin-top:20px;">
+    <div class="col"></div>
+    <div class="col" style="border-top:#ccc 1px solid;"></div>
+    <div class="col" style=" color:#c1c1c1; font-size:11px; text-align:center; position:relative;top:-8px">历史查询</div>
+    <div class="col" style="border-top:#ccc 1px solid;"></div>
+   <div class="col"></div>
+</div>
+<div style="text-align:center;margin-bottom:5px;">
+	<span style="font-size:14px;color:#869bb1;">佛山</span>
+    <span style="font-size:11px;color:#c1c1c1;">到</span>
+    <span style="font-size:14px;color:#869bb1;">广州</span>
+</div>
+<div style="text-align:center;">
+    <span style="font-size:14px;color:#869bb1">深圳</span>
+    <span style="font-size:11px;color:#c1c1c1;">到</span>
+    <span style="font-size:14px;color:#869bb1">广州</span>
+</div>
+-->
+
+<!--新增最下面一栏-->
+<div style="height:120px;"></div>
+
+<div style="position:fixed;bottom:40px;width:100%;">
+    <div class="lt text-center v-middle text-md text-lg text-white p-t-9x p-b-9x r-2x" style="background-color:#595959;height:60px;margin-top:20px;margin-bottom:5px;margin-left:10px;margin-right:10px;padding-top:7px;padding-bottom:7px;padding-left:10px;padding-right:20px;" id="app_div">
+        <div style="float:right;position:relative;top:-20px;right:-30px;height:0px;" onClick="hideAppdiv();"><img src="/addons/nanyuetong/template/img/cancel.png" style="height:23px;"/></div>
+        <div style="float:left;margin-right:10px;"><img src="/addons/nanyuetong/template/img/logo.png" style="height:45px;"/></div>
+        <div class="text-left">
+           <div>广东联网售票</div>
+           <div>APP下载</div>
+        </div>
+        <div class="text-center text-md" style="float:right;height:25px;width:89px;line-height:25px;border-radius:30px;background:#4a94ff;position:relative;top:-32px;">
+            <a style="color:#FFF;" onClick="downloadApp();">马上下载</a>
+        </div>
+    </div>
+</div>
+
+<div style="position:fixed;bottom:0px; width:100%; height:40px; ">
+	<div class="hbox m-t-n b-t b-muted-lter bg-white">
+		<a class="col b-r b-muted-lter text-orange-dk text-center text-md padder-v v-middle" href="{php echo $this->createMobileUrl('pages', array( 'ch' => $channel, 'pages' => 'comp', 'weid' => $_W['weid']))}">
+			<img src="/addons/nanyuetong/template/img/icons-08.png" class="w-20x h-20x m-r-12x">
+			关于我们
+		</a>
+		  <a class="col b-r b-muted-lter text-orange-dk text-center text-md padder-v v-middle" 
+		href="{php echo $this->createMobileUrl('pages', array( 'ch' => $channel, 'pages' => 'myorder', 'weid' => $_W['weid']))}">
+			<img src="/addons/nanyuetong/template/img/icons-18.png" class="w-20x h-20x m-r-12x ">
+			我的订单
+		</a>
+		<a class="col b-muted-lter text-orange-dk text-center text-md padder-v v-middle" 
+		href="{php echo $this->createMobileUrl('pages', array( 'ch' => $channel, 'pages' => 'me', 'weid' => $_W['weid']))}">
+			<img src="/addons/nanyuetong/template/img/ic-19.png" class="w-20x h-20x m-r-12x">
+			个人中心
+		</a>
+	</div>
+</div>
+<script type="text/javascript">
+
+function hideAppdiv(){
+	$('#app_div').hide();
+}
+
+function downloadApp(){
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1; //android终端
+	var isiOS = u.indexOf('Mac') > -1; //ios终端
+	if(isAndroid){
+		window.location = 'http://a.app.qq.com/o/simple.jsp?pkgname=cn.focusspot.nanyuetong';
+	}else if(isiOS){
+		//window.location = 'https://itunes.apple.com/cn/app/guang-dong-lian-wang-shou-piao/id1023632133?l=en&mt=8';
+		window.location = 'http://a.app.qq.com/o/simple.jsp?pkgname=cn.focusspot.nanyuetong';
+	}else{
+		alert('暂不支持该手机系统');
+	}
+}
+
+function changeStartAndDst(){
+	//var origin_startstation = $('#startstation').html();
+//	var origin_desstation = $('#desstation').html();
+//	
+//	if(origin_startstation == '选择出发城市'){
+//		$('#desstation').html('选择目的城市');
+//	}else{
+//		$('#desstation').html(origin_startstation);
+//	}
+//	
+//	if(origin_desstation == '选择目的城市'){
+//		$('#startstation').html('选择出发城市');
+//	}else{
+//		$('#startstation').html(origin_desstation);
+//	}
+	alert('逻辑没有实现');
+}
+
+function selectCity(scity,dcity,stationname,station){
+	$.cookie('dststationname'+'{$channel}', dcity);
+    $.cookie('dststationcode'+'{$channel}', dcity);
+    $("#desstation").html(dcity);
+    $("#desstation").attr("code",dcity);
+ 
+    $.cookie('startcity'+'{$channel}', scity);
+	$("#startstation").attr("city",scity);
+	
+	if(stationname){
+		$.cookie('startstationname'+'{$channel}', stationname);
+		$("#startstation").attr("name",stationname);
+		$("#startstation").html(stationname);
+		$.cookie('startstationcode'+'{$channel}', station);
+		$("#startstation").attr("code",station);
+	}else{
+		$.cookie('startstationname'+'{$channel}', scity);
+		$("#startstation").attr("name",scity);
+		$("#startstation").html(scity);
+		$.cookie('startstationcode'+'{$channel}', scity);
+		$("#startstation").attr("code",scity);
+	}
+}
+
+/*
+function dateframeSelect(name,code){
+
+	$("#dateframe").hide();
+	$.cookie('dstdatename'+'{$channel}', name);
+	$.cookie('dstdatecode'+'{$channel}', code);
+	$("#dstdate").html(name);
+	$("#dstdate").attr("code",code);
+	
+}
+*/
+
+function dateframeHide(){
+	$("#dateframe").hide();
+}
+
+var src_date = new Date();
+src_date = src_date.parseStr("YYYY-MM-DD").parseToDate();
+
+var changeDate = function(dateStr){
+    var date_show  = new Date(Date.parse(dateStr.replace(/-/g,"/"))).parseStr("YYYY-MM-DD").parseToDate();
+    var date_text = "";
+    if(date_show.countDateNum(src_date)==0){
+        date_text = date_show.parseStr("YYYY-MM-DD")+'（'+'今天'+'）';
+    }else
+    if(date_show.countDateNum(src_date)==1){
+        date_text = date_show.parseStr("YYYY-MM-DD")+'（'+'明天'+'）';
+    }else
+    if(date_show.countDateNum(src_date)==2){
+        date_text = date_show.parseStr("YYYY-MM-DD")+'（'+'后天'+'）';
+    }else
+    if(date_show.countDateNum(src_date)==-1){
+        date_text = date_show.parseStr("YYYY-MM-DD")+'（'+'昨天'+'）';
+    }else
+    if(date_show.countDateNum(src_date)==-2){
+        date_text = date_show.parseStr("YYYY-MM-DD")+'（'+'前天'+'）';
+    }else{
+        date_text = date_show.parseStr('YYYY-MM-DD（CWEEK）')
+    }
+    return date_text;
+
+};
+
+var chooseDate = function(){
+    $('#date').focus();
+}
+
+
+function init(){
+    
+	var startcity = "<?php echo ($startcity)?$startcity:'';?>";
+	var startstationname = "<?php echo ($startstationname)?$startstationname:'';?>";
+	var startstation = "<?php echo ($startstation)?$startstation:'';?>";
+	var desstation = "<?php echo ($desstation)?$desstation:'';?>";
+	var desstation = "<?php echo ($desstation)?$desstation:'';?>";
+	//var dstdate = "<?php echo ($dstdate)?$dstdate:'';?>";
+	
+	var ls="{php echo $linksource}";
+	 
+	if(startcity != "" && startstation != "" && startstationname != ""){
+		
+		$("#startstation").attr("city",startcity);
+		$("#startstation").attr("code",startstation);
+		$("#startstation").attr("name",startstationname);
+		$.cookie('startcity'+'{$channel}', startcity);
+        $.cookie('startstationname'+'{$channel}', startstationname);
+        $.cookie('startstationcode'+'{$channel}', startstation);
+        
+        $("#startstation").html($.cookie('startstationname'+'{$channel}'));
+    	$("#startstation").attr("code",$.cookie('startstationcode'+'{$channel}'));
+    	$("#startstation").attr("city",$.cookie('startcity'+'{$channel}'));
+    	$("#startstation").attr("name",$.cookie('startstationname'+'{$channel}'));
+	}else if($.cookie('startstationname'+'{$channel}') && $.cookie('startstationcode'+'{$channel}')){
+    	 if(ls=="xndyg"){
+	        $("#startstation").html("兴宁市东岳宫汽车客运站");
+	    	$("#startstation").attr("code","M7K005");
+	    	$("#startstation").attr("city","梅州");
+	    	$("#startstation").attr("name","兴宁市东岳宫汽车客运站");
+		}else if(ls=="sgxfkyz"){
+		   $("#startstation").html("韶关新丰汽车客运站");
+	    	$("#startstation").attr("code","F7K001");
+	    	$("#startstation").attr("city","韶关");
+	    	$("#startstation").attr("name","韶关新丰汽车客运站");
+		}else if(ls=="jyhlkyz"){
+		   $("#startstation").html("惠来汽车客运站");
+	    	$("#startstation").attr("code","V4K001");
+	    	$("#startstation").attr("city","揭阳");
+	    	$("#startstation").attr("name","惠来汽车客运站");
+		}else if(ls=="fsgmkyz"){
+		   $("#startstation").html("佛山高明汽车客运站");
+	    	$("#startstation").attr("code","E4K014");
+	    	$("#startstation").attr("city","佛山");
+	    	$("#startstation").attr("name","佛山高明汽车客运站");
+		}else if(ls=="yunfu_kyz"){
+		   $("#startstation").html("云浮汽车客运站");
+	    	$("#startstation").attr("code","W1K001");
+	    	$("#startstation").attr("city","云浮");
+	    	$("#startstation").attr("name","云浮汽车客运站");
+		}else if(ls=="mxxcsfkyz"){
+		   $("#startstation").html("梅县新城汽车客运站");
+	    	$("#startstation").attr("code","M2K007");
+	    	$("#startstation").attr("city","梅县");
+	    	$("#startstation").attr("name","梅县新城汽车客运站");
+		}else if(ls=="huazhou_kyz"){
+		   $("#startstation").html("化州河西汽车客运站");
+	    	$("#startstation").attr("code","K5K003");
+	    	$("#startstation").attr("city","茂名");
+	    	$("#startstation").attr("name","化州河西汽车客运站");
+		}else if(ls=="sw_xy_kyz"){
+		   $("#startstation").html("霞洋汽车客运站");
+	    	$("#startstation").attr("code","N1K014");
+	    	$("#startstation").attr("city","汕尾");
+	    	$("#startstation").attr("name","霞洋汽车客运站");
+		}else if(ls=="yunfu_cx_kyz"){
+		   $("#startstation").html("云浮城西客运站");
+	    	$("#startstation").attr("code","W1K004");
+	    	$("#startstation").attr("city","云浮");
+	    	$("#startstation").attr("name","云浮城西客运站");
+		}else if(ls=="shantou_qs_kyz"){
+		   $("#startstation").html("汕头岐山客运站");
+	    	$("#startstation").attr("code","D1K013");
+	    	$("#startstation").attr("city","汕头");
+	    	$("#startstation").attr("name","汕头岐山客运站");
+		}else {
+    	$("#startstation").html($.cookie('startstationname'+'{$channel}'));
+    	$("#startstation").attr("code",$.cookie('startstationcode'+'{$channel}'));
+    	$("#startstation").attr("city",$.cookie('startcity'+'{$channel}'));
+    	$("#startstation").attr("name",$.cookie('startstationname'+'{$channel}'));
+		}
+    }
+	
+	if(desstation != ""){
+		$("#desstation").html(desstation);
+    	$("#desstation").attr("code",desstation);
+    	$.cookie('dststationname'+'{$channel}', desstation);
+        $.cookie('dststationcode'+'{$channel}', desstation);
+	}else if(!startstation && $.cookie('dststationname'+'{$channel}') && $.cookie('dststationcode'+'{$channel}')){
+    	$("#desstation").html($.cookie('dststationname'+'{$channel}'));
+    	$("#desstation").attr("code",$.cookie('dststationcode'+'{$channel}'));
+    }
+    
+	/*
+    if($.cookie('dstdatename'+'{$channel}') && $.cookie('dstdatecode'+'{$channel}')){
+    	$("#showDateDiv").html($.cookie('dstdatename'+'{$channel}'));
+    	$("#showDateDiv").attr("code",$.cookie('dstdatecode'+'{$channel}'));
+    	
+    	$('.form_date').data("date",$.cookie('dstdatecode'+'{$channel}'));
+    }else{
+	*/
+    	var date_show = new Date();
+        date_show = date_show.parseStr("YYYY-MM-DD").parseToDate();
+        var date_text = date_show.parseStr("YYYY-MM-DD")+'（'+'今天'+'）';
+        var date_val = date_show.parseStr("YYYY-MM-DD");
+        $("#showDateDiv").html(date_text);
+    	$("#showDateDiv").attr("code",date_val);
+    	
+    	$('.form_date').data("date",date_val);
+		
+    //}/
+	
+    $('.form_date').datetimepicker({
+        minView: 'month',
+        format:'yyyy-mm-dd',
+        language:'zh-CN',
+        pickerPosition: "top-left",
+      //  todayBtn: true,
+        autoclose:true
+        }).on('changeDate', function(ev){
+        $('#showDateDiv').text($('#date').val())
+        var code = $('#date').val();
+        var name = changeDate(code);
+        $.cookie('dstdatename'+'{$channel}', name);
+    	$.cookie('dstdatecode'+'{$channel}', code);
+    	$("#showDateDiv").html(name);
+    	$("#showDateDiv").attr("code",code);
+    	
+    });
+    $(".submitbtn").click(function(){
+    	var channel = "{$channel}";
+    	var startcity = $("#startstation").attr("city");
+    	var startstation = $("#startstation").attr("code");
+    	var startstationname = $("#startstation").attr("name");
+		
+    	var desstation = $("#desstation").attr("code");
+    	var dstdate = $("#showDateDiv").attr("code");
+    	if(!startstation){
+    		alert("请选择出发城市");
+    		return;
+    	}
+    	if(!desstation){
+    		alert("请选择目的城市");
+    		return;
+    	}
+    	if(!dstdate){
+    		alert("请选择出发日期");
+    		return;
+    	}
+		
+		if(ls=="xndyg"){
+		  startcity="梅州";
+	      startstationname="兴宁市东岳宫汽车客运站";
+	      startstation="M7K005";
+		}else if(ls=="sgxfkyz"){
+		  startcity="韶关";
+	      startstationname="韶关新丰汽车客运站";
+	      startstation="F7K001";
+		}else if(ls=="jyhlkyz"){
+		  startcity="揭阳";
+	      startstationname="惠来汽车客运站";
+	      startstation="V4K001";
+		}else if(ls=="fsgmkyz"){
+		  startcity="佛山";
+	      startstationname="佛山高明汽车客运站";
+	      startstation="E4K014";
+		}else if(ls=="yunfu_kyz"){
+		  startcity="云浮";
+	      startstationname="云浮汽车客运站";
+	      startstation="W1K001";
+		}else if(ls=="mxxcsfkyz"){
+		  startcity="梅州";
+	      startstationname="梅县新城汽车客运站";
+	      startstation="M2K007";
+		}else if(ls=="huazhou_kyz"){
+		  startcity="茂名";
+	      startstationname="化州河西汽车客运站";
+	      startstation="K5K003";
+		}else if(ls=="sw_xy_kyz"){
+		  startcity="汕尾";
+	      startstationname="霞洋汽车客运站";
+	      startstation="N1K014";
+		}else if(ls=="yunfu_cx_kyz"){
+		  startcity="云浮";
+	      startstationname="云浮城西客运站";
+	      startstation="W1K004";
+		}else if(ls=="shantou_qs_kyz"){
+		  startcity="汕头";
+	      startstationname="汕头岐山客运站";
+	      startstation="D1K013";
+		}
+		
+		
+
+		
+    	var queryUrl = "{php echo $this->createMobileUrl('pages', array( 'linksource' => $linksource,'scenetype' => $scenetype,'scenesn' => $scenesn,'noother' => $noother,'ch' => $channel, 'pages' => 'querystation', 'weid' => $_W['weid']),true)}";
+    	if(queryUrl.indexOf("?") > 0){
+    		queryUrl += "&";
+    	}else{
+    		queryUrl += "?";
+    	}
+    	queryUrl += "desstation="+desstation+"&dstdate="+dstdate+"&startstation="+startstation+"&startcity="+startcity+"&startstationname="+startstationname;
+    	location.href = queryUrl;
+    });
+   
+    if(ls=="yf"){
+    	hideAppdiv();
+    }
+
+}
+//
+init();
+
+</script>
+<!-- 
+<div style="position:absolute;left:0;top:0;z-index:2000;width:100%;height:100%;display:none;" id="dateframe">
+	<iframe src="{php echo $this->createMobileUrl('pages', array( 'ch' => $channel, 'pages' => 'date', 'weid' => $_W['weid']),true)}" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+</div>
+ -->
+</body>
+</html>
