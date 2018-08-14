@@ -69,25 +69,25 @@
         <div class="aui-bar-tab-item aui-active" tapmode @click="goView('/station/Station')">
           <!--<i class="aui-iconfont aui-icon-home"></i>-->
           <div><i class="iconfont icon-homeline "></i></div>
-          <div class="aui-bar-tab-label">站务</div>
+          <div class="aui-bar-tab-label">站 务</div>
         </div>
 
         <div class="aui-bar-tab-item" tapmode @click="goView('/ticket/ticket')">
           <!--<i class="aui-iconfont aui-icon-star"></i>-->
           <div><i class="iconfont icon-ticket "></i></div>
-          <div class="aui-bar-tab-label">票务</div>
+          <div class="aui-bar-tab-label">票 务</div>
         </div>
 
         <div class="aui-bar-tab-item" tapmode @click="goView('/car/car')">
           <!--<i class="aui-iconfont aui-icon-cart"></i>-->
           <div><i class="iconfont icon-bus "></i></div>
-          <div class="aui-bar-tab-label">车方</div>
+          <div class="aui-bar-tab-label">车 方</div>
         </div>
 
         <div class="aui-bar-tab-item" tapmode @click="goView('/usermng/user')">
           <!--<i class="aui-iconfont aui-icon-my"></i>-->
           <div><i class="iconfont icon-myline "></i></div>
-          <div class="aui-bar-tab-label">用户</div>
+          <div class="aui-bar-tab-label">用 户</div>
         </div>
       </footer>
 

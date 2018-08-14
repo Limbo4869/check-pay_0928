@@ -18,17 +18,18 @@ const StationWN = r => require.ensure([],() => r(require('@/mods/station/waiting
 const StationLaterS = r => require.ensure([],() => r(require('@/mods/station/later_situation')),'station');
 const StationCSRflow = r => require.ensure([],() => r(require('@/mods/station/CSRflow')),'station');
 
-
-
-
 const CarPane = r => require.ensure([], () => r(require('@/mods/car/Pane')),'car');
 const CarCar = r => require.ensure([], () => r(require('@/mods/car/Car')),'car');
+const CarreservedSeat_ticket = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_ticket')),'car');
+const CarreservedSeat_situation = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_situation')),'car');
+
+
 
 const TicketPane = r => require.ensure([], () => r(require('@/mods/ticket/Pane')),'ticket');
 const TicketTicket = r => require.ensure([], () => r(require('@/mods/ticket/Ticket')),'ticket');
 const TicketTicket_info = r => require.ensure([], () => r(require('@/mods/ticket/Ticket_info')),'ticket');
 const TicketConductor = r => require.ensure([], () => r(require('@/mods/ticket/conductor')),'ticket');
-
+const TicketReserved = r => require.ensure([], () => r(require('@/mods/ticket/reservedSeat_sell')),'ticket');
 
 const UsermngPane = r => require.ensure([], () => r(require('@/mods/usermng/Pane')),'usermng');
 const UsermngUsermng = r => require.ensure([], () => r(require('@/mods/usermng/User')),'usermng');
@@ -126,6 +127,14 @@ let routes = [
       {
         path: 'car',
         component: CarCar
+      },
+      {
+        path: 'reservedSeat_ticket',
+        component: CarreservedSeat_ticket
+      },
+      {
+        path: 'reservedSeat_situation',
+        component: CarreservedSeat_situation
       }
     ]
   },
@@ -150,6 +159,10 @@ let routes = [
       {
         path: 'Ticket_info',
         component: TicketTicket_info
+      },
+      {
+        path: 'ReservedSeat_sell',
+        component: TicketReserved
       },
 
     ]

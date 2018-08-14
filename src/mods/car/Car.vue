@@ -26,48 +26,35 @@
 
     <div>
       <section class="aui-grid aui-margin-b-15">
-        <div class="aui-row" @click="goView('/main/station')">
-          <div class="aui-col-xs-4">
-            <!--<div class="aui-badge">88</div>-->
-            <!--<i class="aui-iconfont aui-icon-home"></i>-->
+        <div class="aui-row">
+          <div class="aui-col-xs-4" @click="goView('/car/reservedSeat_ticket')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-order " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">留位出票</div>
           </div>
-          <div class="aui-col-xs-4" @click="goView('/main/station')">
-            <!--<i class="aui-iconfont aui-icon-gear"></i>-->
+          <div class="aui-col-xs-4" @click="goView('/car/reservedSeat_situation')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-detail " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">留位情况</div>
           </div>
           <div class="aui-col-xs-4">
-            <!--<i class="aui-iconfont aui-icon-map"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-scan " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">出票二维码</div>
           </div>
           <div class="aui-col-xs-4">
-            <!--<i class="aui-iconfont aui-icon-calendar"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-time1 " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">超时出票</div>
           </div>
           <div class="aui-col-xs-4">
-            <!--<div class="aui-badge"></div>-->
-            <!--<i class="aui-iconfont aui-icon-date"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-category1" style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">报表查询</div>
           </div>
-
-
           <div class="aui-col-xs-4">
-            <!--<i class="aui-iconfont aui-icon-map"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-fullscreen " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">车票查询</div>
           </div>
           <div class="aui-col-xs-4">
-            <!--<i class="aui-iconfont aui-icon-calendar"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-edit " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">验票</div>
           </div>
-
-
         </div>
       </section>
     </div>
@@ -78,25 +65,25 @@
       <div class="aui-bar-tab-item " tapmode @click="goView('/station/station')">
         <!--<i class="aui-iconfont aui-icon-home"></i>-->
         <div><i class="iconfont icon-homeline "></i></div>
-        <div class="aui-bar-tab-label">站务</div>
+        <div class="aui-bar-tab-label">站 务</div>
       </div>
 
       <div class="aui-bar-tab-item" tapmode @click="goView('/ticket/ticket')">
         <!--<i class="aui-iconfont aui-icon-star"></i>-->
         <div><i class="iconfont icon-ticket "></i></div>
-        <div class="aui-bar-tab-label">票务</div>
+        <div class="aui-bar-tab-label">票 务</div>
       </div>
 
       <div class="aui-bar-tab-item aui-active" tapmode @click="goView('/car/car')">
         <!--<i class="aui-iconfont aui-icon-cart"></i>-->
         <div><i class="iconfont icon-bus "></i></div>
-        <div class="aui-bar-tab-label">车方</div>
+        <div class="aui-bar-tab-label">车 方</div>
       </div>
 
       <div class="aui-bar-tab-item" tapmode @click="goView('/usermng/user')">
         <!--<i class="aui-iconfont aui-icon-my"></i>-->
         <div><i class="iconfont icon-myline "></i></div>
-        <div class="aui-bar-tab-label">用户</div>
+        <div class="aui-bar-tab-label">用 户</div>
       </div>
     </footer>
 
