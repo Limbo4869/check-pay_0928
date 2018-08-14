@@ -22,6 +22,7 @@ const CarPane = r => require.ensure([], () => r(require('@/mods/car/Pane')),'car
 const CarCar = r => require.ensure([], () => r(require('@/mods/car/Car')),'car');
 const CarreservedSeat_ticket = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_ticket')),'car');
 const CarreservedSeat_situation = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_situation')),'car');
+const CarreservedSeat_code = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_code')),'car');
 
 
 
@@ -135,6 +136,10 @@ let routes = [
       {
         path: 'reservedSeat_situation',
         component: CarreservedSeat_situation
+      },
+      {
+        path: 'reservedSeat_code',
+        component: CarreservedSeat_code
       }
     ]
   },

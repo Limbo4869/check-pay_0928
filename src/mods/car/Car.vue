@@ -35,7 +35,7 @@
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-detail " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">留位情况</div>
           </div>
-          <div class="aui-col-xs-4">
+          <div class="aui-col-xs-4" @click="goView('/car/reservedSeat_code')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-scan " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">出票二维码</div>
           </div>
