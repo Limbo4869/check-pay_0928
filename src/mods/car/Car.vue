@@ -43,11 +43,11 @@
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-time1 " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">超时出票</div>
           </div>
-          <div class="aui-col-xs-4">
+          <div class="aui-col-xs-4" @click="goView('/car/reportQuery')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-category1" style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">报表查询</div>
           </div>
-          <div class="aui-col-xs-4">
+          <div class="aui-col-xs-4" @click="goView('/car/ticketQuery')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-fullscreen " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">车票查询</div>
           </div>

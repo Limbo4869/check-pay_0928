@@ -24,6 +24,8 @@ const CarreservedSeat_ticket = r => require.ensure([], () => r(require('@/mods/c
 const CarreservedSeat_situation = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_situation')),'car');
 const CarreservedSeat_code = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_code')),'car');
 const CarTimeoutTicket = r => require.ensure([], () => r(require('@/mods/car/TimeoutTicket')),'car');
+const CarreportQuery = r => require.ensure([], () => r(require('@/mods/car/reportQuery')),'car');
+const CarticketQuery = r => require.ensure([], () => r(require('@/mods/car/ticketQuery')),'car');
 
 
 
@@ -145,6 +147,14 @@ let routes = [
       {
         path: 'TimeoutTicket',
         component: CarTimeoutTicket
+      },
+      {
+        path: 'reportQuery',
+        component: CarreportQuery
+      },
+      {
+        path: 'ticketQuery',
+        component: CarticketQuery
       }
     ]
   },
