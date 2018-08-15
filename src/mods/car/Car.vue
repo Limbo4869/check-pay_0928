@@ -39,7 +39,7 @@
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-scan " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">出票二维码</div>
           </div>
-          <div class="aui-col-xs-4">
+          <div class="aui-col-xs-4" @click="goView('/car/TimeoutTicket')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-time1 " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">超时出票</div>
           </div>

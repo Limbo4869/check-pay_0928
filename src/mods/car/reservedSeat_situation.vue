@@ -72,42 +72,42 @@
         tableData5: [{
           ZD_tb: '天河站',
           BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 17:10',
+          JHFC_tb: '08-14 7:10',
           WCP_tb: '0',
         }, {
           ZD_tb: '天河站',
           BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 17:10',
+          JHFC_tb: '08-14 7:10',
           WCP_tb: '0',
         }, {
           ZD_tb: '天河站',
           BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 17:10',
+          JHFC_tb: '08-14 7:10',
           WCP_tb: '0',
         }, {
           ZD_tb: '天河站',
           BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 17:10',
+          JHFC_tb: '08-14 7:10',
           WCP_tb: '0',
         }, {
           ZD_tb: '天河站',
           BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 17:10',
+          JHFC_tb: '08-14 7:10',
           WCP_tb: '0',
         }, {
           ZD_tb: '天河站',
           BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 17:10',
+          JHFC_tb: '08-14 7:10',
           WCP_tb: '0',
         }, {
           ZD_tb: '天河站',
           BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 17:10',
+          JHFC_tb: '08-14 7:10',
           WCP_tb: '0',
         }, {
           ZD_tb: '天河站',
           BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 17:10',
+          JHFC_tb: '08-14 7:10',
           WCP_tb: '0',
         }
         ],

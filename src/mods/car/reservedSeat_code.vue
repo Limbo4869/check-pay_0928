@@ -6,35 +6,7 @@
     </yd-navbar>
 
     <div>
-      <!--<el-popover-->
-      <!--placement="right"-->
-      <!--width="400"-->
-      <!--trigger="click">-->
-      <!--<el-table :data="gridData">-->
-      <!--<el-table-column width="150" property="date" label=""></el-table-column>-->
-      <!--<el-table-column width="100" property="name" label=""></el-table-column>-->
-      <!--<el-table-column width="300" property="address" label=""></el-table-column>-->
-      <!--</el-table>-->
-      <!--<el-button slot="reference">click 激活</el-button>-->
-      <!--</el-popover>-->
-
-      <el-row :gutter="10">
-        <el-col :span="24"><div class="grid-content bg-purple-dark" style="margin: auto 10px">
-          <!--<yd-search v-model="value1" :on-submit="submitHandler" placeholder="班次号"  cancel-text></yd-search>-->
-          <el-input placeholder="班次号"  v-model="schfilter" clearable>
-          </el-input>
-        </div></el-col>
-      </el-row>
       <el-row>
-        <el-col :span="12"><div class="grid-content bg-purple">
-          <yd-cell-item>
-                  <span slot="left" style="margin-left: 2px">
-                     <yd-datetime type="day" style="height: 30px;line-height: 30px;float: left;" v-model="datetime0"></yd-datetime>
-                  </span>
-            <span slot="left" style="margin-left: 5px" class="el-icon-caret-bottom"></span>
-            <!--<span slot="left" style="margin-left: 5px;" ><i class="iconfont icon-arrow-down " style="opacity: 0.7;width: 2px"></i></span>-->
-          </yd-cell-item>
-        </div></el-col>
         <el-col :span="12"><div class="grid-content bg-purple-light">
           <yd-cell-item>
                   <span slot="left" style="margin-left: 2px">
@@ -58,45 +30,78 @@
         <el-table-column type="expand">
           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="班次号">
-                <span>{{ props.row.busnub_tb }}</span>
+              <el-form-item label="票号">
+                <span>{{ props.row.PH_tb }}</span>
               </el-form-item>
-              <el-form-item label="计划">
-                <span>{{ props.row.plan_tb }}</span>
+              <el-form-item label="座号">
+                <span>{{ props.row.ZH_tb }}</span>
               </el-form-item>
-              <el-form-item label="日期">
-                <span>{{ props.row.time_tb }}</span>
+              <el-form-item label="班次">
+                <span>{{ props.row.BC_tb }}</span>
               </el-form-item>
-              <el-form-item label="状态">
-                <span>{{ props.row.state_tb }}</span>
+              <el-form-item label="线路">
+                <span>{{ props.row.XL_tb  }}</span>
               </el-form-item>
-              <el-form-item label="车型">
-                <span>{{ props.row.car_tb  }}</span>
+              <el-form-item label="售票员">
+                <span>{{ props.row.SPY_tb }}</span>
               </el-form-item>
-              <el-form-item label="报班">
-                <span>{{ props.row.shift_tb }}</span>
-              </el-form-item>
-              <el-form-item label="结算">
-                <span>{{ props.row.count_tb }}</span>
-              </el-form-item>
-              <el-form-item label="准/已/结">
-                <span>{{ props.row.numb_tb }}</span>
-              </el-form-item>
-
+              <!--<el-form-item label="发车">-->
+                <!--<span>{{ props.row.FCRQ_tb }}</span>-->
+              <!--</el-form-item>-->
             </el-form>
           </template>
         </el-table-column>
         <el-table-column
-          label="日期"
-          prop="time_tb">
+          label="发车日期"
+          prop="FCRQ_tb">
+        </el-table-column>
+        <el-table-column
+          label="座号"
+          prop="ZH_tb">
         </el-table-column>
         <el-table-column
           label="状态"
-          prop="state_tb">
-        </el-table-column>
-        <el-table-column
-          label="准 /已 /结"
-          prop="numb_tb">
+         >
+          <template slot-scope="scope">
+            <el-button type="text" @click="dialogVisible = true">留位出票</el-button>
+            <el-dialog
+              title=""
+              :visible.sync="dialogVisible"
+              width="70%">
+              <div><img :src="code" alt="logo" style="width: 80%;margin-top: -50px"></div>
+              <div style="padding: -15px;">
+                <el-row :gutter="10">
+                  <el-col :span="12"><div class="grid-content bg-purple seat_1" style="text-align: right;margin-bottom: 5px">电子票号 :</div></el-col>
+                  <el-col :span="12"><div class="grid-content bg-purple seat_2" style="text-align: left;margin-bottom: 5px">000234</div></el-col>
+                </el-row>
+                <el-row :gutter="10">
+                  <el-col :span="12"><div class="grid-content bg-purple seat_1" style="text-align: right;margin-bottom: 5px">旅客姓名 :</div></el-col>
+                  <el-col :span="12"><div class="grid-content bg-purple seat_2" style="text-align: left;margin-bottom: 5px">XXX</div></el-col>
+                </el-row>
+                <el-row :gutter="10">
+                  <el-col :span="12"><div class="grid-content bg-purple seat_1" style="text-align: right;margin-bottom: 5px">票价类型 :</div></el-col>
+                  <el-col :span="12"><div class="grid-content bg-purple seat_2" style="text-align: left;margin-bottom: 5px">全</div></el-col>
+                </el-row>
+                <el-row :gutter="10">
+                  <el-col :span="12"><div class="grid-content bg-purple seat_1" style="text-align: right;margin-bottom: 5px">座 号 :</div></el-col>
+                  <el-col :span="12"><div class="grid-content bg-purple seat_2" style="text-align: left;margin-bottom: 5px">06</div></el-col>
+                </el-row>
+                <el-row :gutter="10">
+                  <el-col :span="12"><div class="grid-content bg-purple seat_1" style="text-align: right;margin-bottom: 5px">检 票 口 :</div></el-col>
+                  <el-col :span="12"><div class="grid-content bg-purple seat_2" style="text-align: left;margin-bottom: 5px">02</div></el-col>
+                </el-row>
+
+              </div>
+
+
+              <span slot="footer" class="dialog-footer">
+                  <el-button @click="dialogVisible = false">取 消</el-button>
+                  <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+              </span>
+            </el-dialog>
+
+
+          </template>
         </el-table-column>
       </el-table>
     </div>
@@ -114,150 +119,94 @@
   export default {
     data() {
       return {
+        dialogVisible: false,
+        code: 'static/code.jpg',
 
         tableData5: [{
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-15',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'AZ432'
+          ZH_tb: '06',
+          PH_tb: '00045',
+          SPY_tb: 'XXX',
+          BC_tb: 'AZ4321',
+          XL_tb: '天河',
+          FCRQ_tb: '08-06 15:39',
         },
           {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-12',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'GZ4321'
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
+            FCRQ_tb: '08-06 15:39',
           }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-30',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'BC4321'
+            FCRQ_tb: '08-27 15:39',
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
           }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-08',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'AZ5691'
+            FCRQ_tb: '08-21 15:39',
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
           }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-05',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'AZ4918'
+            FCRQ_tb: '08-18 15:39',
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
           }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-09',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'KO4321'
+            FCRQ_tb: '08-24 15:39',
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
           }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-10',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'GZ4321'
+            FCRQ_tb: '08-17 15:39',
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
           }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-19',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'AZ432'
+            FCRQ_tb: '08-04 15:39',
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
           }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-24',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'YH432'
+            FCRQ_tb: '08-10 15:39',
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
           }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-26',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'YH8530'
+            FCRQ_tb: '08-14 15:39',
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
           }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-22',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'HY3064'
-          }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-10',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'KO4321'
-          }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-09',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'KO4321'
-          }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-08',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'TY4321'
-          }, {
-            shift_tb: '14:39',
-            plan_tb: '15:30',
-            time_tb: '08-02',
-            state_tb: '发',
-            numb_tb: '59 / 20 / 20',
-            car_tb: '座',
-            count_tb: '14:50',
-            busnub_tb:'TY4321'
-          }
+            FCRQ_tb: '08-14 15:39',
+            ZH_tb: '06',
+            PH_tb: '00045',
+            SPY_tb: 'XXX',
+            BC_tb: 'AZ4321',
+            XL_tb: '天河',
+          },
         ],
         tableData:[],
         schfilter: '',
         value1: '',
-        datetime0: '08-08',
-        datetime1: '08-16',
+        datetime0: '08-01',
+        datetime1: '08-26',
       }
     },
     methods: {
@@ -270,10 +219,9 @@
       dateFilter() {
         this.tableData = this.tableData.filter(item => {
           let year = new Date().getFullYear();
-          let start = new Date(year + '-' + this.datetime0).getTime();
           let end = new Date(year + '-' + this.datetime1).getTime();
-          let item_data = new Date(year + '-' + item.time_tb).getTime();
-          return start <= item_data && item_data <= end;
+          let item_data = new Date(year + '-' + item.FCRQ_tb).getTime();
+          return  item_data <= end;
         });
       },
       keywordFilter() {

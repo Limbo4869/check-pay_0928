@@ -59,6 +59,7 @@
                 width="100%"
                 :visible.sync="innerVisible"
                 append-to-body>
+
                 <div class="title_seat" >
                   <el-row :gutter="20">
                     <el-col :span="4"><div class="grid-content bg-purple seat_1" >已售</div></el-col>
@@ -218,8 +219,8 @@
 
               </div>
               <div>
-                <el-button type="primary" >流水号出票</el-button>
-                <el-button type="success" @click="innerVisible = true">座号出票</el-button>
+                <el-button type="primary" plain>流水号出票</el-button>
+                <el-button type="success" @click="innerVisible = true" plain>座号出票</el-button>
               </div>
               <div slot="footer" class="dialog-footer">
                 <el-button @click="dialogFormVisible = false">取 消</el-button>
