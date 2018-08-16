@@ -1,9 +1,5 @@
 <template>
-
   <div class="station">
-
-
-
     <div class="in-bg"><yd-navbar title="站 务"></yd-navbar></div>
     <div>
       <yd-slider autoplay="3000">

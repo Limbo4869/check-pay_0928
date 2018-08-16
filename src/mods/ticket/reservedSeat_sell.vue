@@ -341,8 +341,6 @@
     margin-bottom: 0;
     width: 50%;
   }
-
-
   body {
     font-family: Helvetica Neue, Arial, sans-serif;
     font-size: 14px;

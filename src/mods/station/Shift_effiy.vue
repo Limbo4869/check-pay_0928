@@ -24,11 +24,7 @@
             <!--</div>-->
           </el-col>
         </el-row>
-
     </div>
-
-    <!--<div style="width: 1px;margin-left: 10px;margin-right: 5px; background: #000;margin-top: 15px;opacity: 0.3;height: 16px"></div>-->
-
     <div style="margin-top: 20px">
       <el-table
         :data="tableData5"
@@ -57,8 +53,6 @@
         </el-table-column>
       </el-table>
     </div>
-
-
   </div>
 </template>
 
@@ -66,7 +60,6 @@
   import { XTextarea } from 'vux'
   import { Group } from 'vux'
   import { XInput } from 'vux'
-
 
   export default {
     data() {
@@ -218,8 +211,6 @@
     margin-bottom: 0;
     width: 50%;
   }
-
-
   body {
     font-family: Helvetica Neue, Arial, sans-serif;
     font-size: 14px;

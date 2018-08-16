@@ -63,7 +63,6 @@
       </el-table>
     </div>
 
-
   </div>
 </template>
 
@@ -71,7 +70,6 @@
   import { XTextarea } from 'vux'
   import { Group } from 'vux'
   import { XInput } from 'vux'
-
 
   export default {
     data() {
@@ -193,8 +191,6 @@
   //   },
   // },
 </script>
-
-
 
 <style>
   .yd-datetime-input {

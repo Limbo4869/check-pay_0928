@@ -8,7 +8,7 @@
           <h3><p class="aui-text-white" style="opacity: 0.7;letter-spacing: 0.2rem">站务系统</p></h3>
         </div>
       </div>
-      <div style="width: 85%;margin: 0.1rem auto;">
+      <div class="input_01" style="width: 85%;margin: 0.1rem auto;">
         <yd-cell-group>
           <yd-cell-item style="margin-bottom: 15px">
             <span slot="left" class="aui-font-size-14 aui-text-white"><i class="iconfont icon-myline" style="opacity: 0.7"></i></span>
@@ -22,7 +22,6 @@
       </div>
       <div style="margin: 1rem 1rem">
         <div class="aui-btn aui-btn-info" style="width: 100%;padding: 0.4rem 0;letter-spacing: 0.5rem;font-size: 0.8rem" @click="goView('/station/station')">登录</div>
-        <!--<div class="aui-btn aui-btn-info" style="width: 100%;padding: 0.5rem 0;" @click="goView('/bus/start')">登录</div>-->
       </div>
       <div>
          <p class="aui-text-white" @click="goView('/user/regist')" style="letter-spacing: 0.1rem;text-decoration: underline;font-size: 0.2rem;opacity: 0.5;float: right;margin-right: 1rem">
@@ -58,6 +57,9 @@ export default {
 }
 </script>
 <style type="text/css" scoped>
+  .input_01 .yd-cell-item{
+    padding-left:0!important;
+  }
   .in-bg{
     background: -webkit-linear-gradient(left top, #68c8b7 , #3577cd); /* Safari 5.1 - 6.0 */
     background: -o-linear-gradient(bottom right, #68c8b7, #3577cd); /* Opera 11.1 - 12.0 */

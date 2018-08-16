@@ -400,13 +400,7 @@
 
     }
   }
-
-
-
-
 </script>
-
-
 
 <style>
   .el-row {

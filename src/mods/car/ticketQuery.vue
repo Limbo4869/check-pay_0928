@@ -6,18 +6,6 @@
     </yd-navbar>
 
     <div>
-      <!--<el-popover-->
-      <!--placement="right"-->
-      <!--width="400"-->
-      <!--trigger="click">-->
-      <!--<el-table :data="gridData">-->
-      <!--<el-table-column width="150" property="date" label=""></el-table-column>-->
-      <!--<el-table-column width="100" property="name" label=""></el-table-column>-->
-      <!--<el-table-column width="300" property="address" label=""></el-table-column>-->
-      <!--</el-table>-->
-      <!--<el-button slot="reference">click 激活</el-button>-->
-      <!--</el-popover>-->
-
       <el-row :gutter="1">
         <el-col :span="8"><div class="grid-content bg-purple-dark" style="margin: auto 10px">
           <el-input placeholder="身份证号"  v-model="schfilter" clearable>
@@ -32,10 +20,7 @@
           </el-input>
         </div></el-col>
       </el-row>
-
     </div>
-
-    <!--<div style="width: 1px;margin-left: 10px;margin-right: 5px; background: #000;margin-top: 15px;opacity: 0.3;height: 16px"></div>-->
 
     <div style="margin-top: 20px">
       <el-table
@@ -47,34 +32,51 @@
         <el-table-column type="expand">
           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="工号">
-                <span>{{ props.row.GH_tb }}</span>
+              <el-form-item label="起始站">
+                <span>{{ props.row.QSZ_tb }}</span>
+              </el-form-item>
+              <el-form-item label="终点站">
+                <span>{{ props.row.ZDZ_tb }}</span>
+              </el-form-item>
+              <el-form-item label="线路">
+                <span>{{ props.row.XL_tb }}</span>
               </el-form-item>
               <el-form-item label="姓名">
-                <span>{{ props.row.SPY_name_tb }}</span>
+                <span>{{ props.row.name_tb }}</span>
               </el-form-item>
-              <el-form-item label="售票数">
-                <span>{{ props.row.SPZS_tb }}</span>
+              <el-form-item label="座号">
+                <span>{{ props.row.ZH_tb }}</span>
               </el-form-item>
-              <el-form-item label="日期">
-                <span>{{ props.row.time_tb }}</span>
+              <el-form-item label="班次">
+                <span>{{ props.row.BC_tb  }}</span>
               </el-form-item>
-              <el-form-item label="金额">
-                <span>{{ props.row.JE_tb }}</span>
+              <el-form-item label="票价">
+                <span>{{ props.row.PJ_tb }}</span>
               </el-form-item>
-              <el-form-item label="退票数">
-                <span>{{ props.row.TPZS_tb  }}</span>
+              <el-form-item label="携童">
+                <span>{{ props.row.XT_tb }}</span>
               </el-form-item>
-              <el-form-item label="手续费">
-                <span>{{ props.row.SXF_tb }}</span>
+              <el-form-item label="保险">
+                <span>{{ props.row.BX_tb }}</span>
               </el-form-item>
-              <el-form-item label="加收/票">
-                <span>{{ props.row.MPJS_tb }}</span>
+              <el-form-item label="车型">
+                <span>{{ props.row.CX_tb }}</span>
               </el-form-item>
-              <el-form-item label="缴款数">
-                <span>{{ props.row.DTYJPKS_tb }}</span>
+              <el-form-item label="售票员">
+                <span>{{ props.row.SPY_tb }}</span>
               </el-form-item>
-
+              <el-form-item label="售票">
+                <span>{{ props.row.SP_tb }}</span>
+              </el-form-item>
+              <el-form-item label="手机号">
+                <span>{{ props.row.phone_tb }}</span>
+              </el-form-item>
+              <el-form-item label="检票点">
+                <span>{{ props.row.JPD_tb }}</span>
+              </el-form-item>
+              <el-form-item label="身份证">
+                <span>{{ props.row.SFZ_tb }}</span>
+              </el-form-item>
             </el-form>
           </template>
         </el-table-column>
@@ -93,7 +95,6 @@
       </el-table>
     </div>
 
-
   </div>
 </template>
 
@@ -102,21 +103,29 @@
   import { Group } from 'vux'
   import { XInput } from 'vux'
 
-
   export default {
     data() {
       return {
 
         tableData5: [{
-          GH_tb: '009',
-          SPY_name_tb: '张三',
-          SPZS_tb: '15',
-          JE_tb: '￥234.00',
-          TPZS_tb: '0',
-          SXF_tb: '0',
-          MPJS_tb: '0',
-          DTYJPKS_tb:'0',
-          time_tb: '08-15'
+          CPHM_tb: '00009',
+          JPZT_tb: '已检',
+          FCSJ_tb: '08-15 7:10',
+          QSZ_tb: '广州',
+          ZDZ_tb: '深圳',
+          XL_tb: '广州-深圳',
+          name_tb: 'XXX',
+          XT_tb:'否',
+          PJ_tb: '￥115.0',
+          ZH_tb:'03',
+          BC_tb :'AZ1203',
+          BX_tb:'0',
+          CX_tb:'座',
+          SPY_tb:'003',
+          SP_tb:'08-13 7:10',
+          phone_tb:'13560049503',
+          JPD_tb:'广州',
+          SFZ_tb:'440214199901181003'
         },
           {
             GH_tb: '009',
@@ -279,7 +288,7 @@
           let year = new Date().getFullYear();
           let start = new Date(year + '-' + this.datetime0).getTime();
           let end = new Date(year + '-' + this.datetime1).getTime();
-          let item_data = new Date(year + '-' + item.time_tb).getTime();
+          let item_data = new Date(year + '-' + item.FCSJ_tb).getTime();
           return start <= item_data && item_data <= end;
         });
       },
@@ -326,8 +335,6 @@
   // },
 </script>
 
-
-
 <style>
   .yd-datetime-input {
     font-size: 12px;
@@ -347,8 +354,6 @@
     margin-bottom: 0;
     width: 50%;
   }
-
-
   body {
     font-family: Helvetica Neue, Arial, sans-serif;
     font-size: 14px;

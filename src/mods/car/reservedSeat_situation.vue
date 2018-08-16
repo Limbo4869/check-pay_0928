@@ -6,11 +6,6 @@
     </yd-navbar>
 
     <div>
-      <!--<el-row>-->
-      <!--<el-col :span="24"><div class="grid-content bg-purple-dark">-->
-      <!--<yd-search v-model="value1" :on-submit="submitHandler" placeholder="班次号"  cancel-text></yd-search>-->
-      <!--</div></el-col>-->
-      <!--</el-row>-->
       <el-row>
         <el-col :span="24">
           <div class="grid-content bg-purple">
@@ -25,8 +20,6 @@
         </el-col>
       </el-row>
     </div>
-
-    <!--<div style="width: 1px;margin-left: 10px;margin-right: 5px; background: #000;margin-top: 15px;opacity: 0.3;height: 16px"></div>-->
 
     <div style="margin-top: 20px">
       <el-table
@@ -56,7 +49,6 @@
       </el-table>
     </div>
 
-
   </div>
 </template>
 
@@ -64,7 +56,6 @@
   import { XTextarea } from 'vux'
   import { Group } from 'vux'
   import { XInput } from 'vux'
-
 
   export default {
     data() {
@@ -111,8 +102,6 @@
           WCP_tb: '0',
         }
         ],
-
-
         value1: '',
         datetime0: '2018-08-02',
         datetime1: '2018-08-10',
@@ -135,12 +124,7 @@
     }
   }
 
-
-
-
 </script>
-
-
 
 <style scoped>
   .yd-cell-left {
@@ -164,8 +148,6 @@
     margin-bottom: 0;
     width: 50%;
   }
-
-
   body {
     font-family: Helvetica Neue, Arial, sans-serif;
     font-size: 14px;

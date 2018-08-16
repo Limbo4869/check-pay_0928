@@ -48,8 +48,6 @@
       </section>
     </div>
 
-
-
     <footer class="aui-bar aui-bar-tab" id="footer">
       <div class="aui-bar-tab-item " tapmode @click="goView('/station/station')">
         <!--<i class="aui-iconfont aui-icon-home"></i>-->

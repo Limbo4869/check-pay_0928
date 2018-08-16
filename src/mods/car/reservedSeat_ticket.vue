@@ -6,11 +6,6 @@
     </yd-navbar>
 
     <div>
-      <!--<el-row>-->
-      <!--<el-col :span="24"><div class="grid-content bg-purple-dark">-->
-      <!--<yd-search v-model="value1" :on-submit="submitHandler" placeholder="班次号"  cancel-text></yd-search>-->
-      <!--</div></el-col>-->
-      <!--</el-row>-->
       <el-row>
         <el-col :span="24">
           <div class="grid-content bg-purple">
@@ -19,14 +14,11 @@
                      <yd-datetime type="date" style="height: 30px;line-height: 30px;float: left;" v-model="datetime0"></yd-datetime>
                   </span>
               <span slot="left" style="margin-left: 5px" class="el-icon-caret-bottom"></span>
-              <!--<span slot="left" style="margin-left: 5px;" ><i class="iconfont icon-arrow-down " style="opacity: 0.7;width: 2px"></i></span>-->
             </yd-cell-item>
           </div>
         </el-col>
       </el-row>
     </div>
-
-    <!--<div style="width: 1px;margin-left: 10px;margin-right: 5px; background: #000;margin-top: 15px;opacity: 0.3;height: 16px"></div>-->
 
     <div style="margin-top: 20px">
       <el-table
@@ -202,21 +194,15 @@
                   </el-row>
                 </div>
 
-
-
-
               </el-dialog>
               <el-form :model="form">
-                  <!--<el-form-item label="活动名称" :label-width="formLabelWidth">-->
                     <el-input v-model="form.name" auto-complete="off" placeholder="输入座位数量"></el-input>
-                  <!--</el-form-item>-->
               </el-form>
               <div style="padding: 15px">
                 <el-radio v-model="radio" label="1">1</el-radio>
                 <el-radio v-model="radio" label="2">2</el-radio>
                 <el-radio v-model="radio" label="3">3</el-radio>
                 <el-radio v-model="radio" label="4">4</el-radio>
-
               </div>
               <div>
                 <el-button type="primary" plain>流水号出票</el-button>
@@ -226,19 +212,11 @@
                 <el-button @click="dialogFormVisible = false">取 消</el-button>
                 <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
               </div>
-
-
-                <!--<el-button @click="outerVisible = false">取 消</el-button>-->
-                <!--<el-button type="primary" @click="innerVisible = true">打开内层 Dialog</el-button>-->
             </el-dialog>
-            <!--<el-button-->
-              <!--size="mini"-->
-              <!--@click="handleEdit(scope.$index, scope.row)">出 票</el-button>-->
           </template>
         </el-table-column>
       </el-table>
     </div>
-
 
   </div>
 </template>
@@ -247,8 +225,6 @@
   import { XTextarea } from 'vux'
   import { Group } from 'vux'
   import { XInput } from 'vux'
-
-
   export default {
     data() {
       return {
@@ -310,18 +286,6 @@
         dayFormat: '<span style="color:#FFB400;">{value}<i style="font-size: 12px;margin-left: 1px;">日</i></span>'
       }
     },
-    // const DialogConfig = {
-    //   curDialog: null,
-    //   dialog1: {
-    //     title: 'dialog1',
-    //     message: '内容等',
-    //   },
-    //   dialog2: {
-    //     title: 'dialog1',
-    //     message: '内容等',
-    //   },
-    // },
-
     methods: {
       // hancleClick(name){
       //   DialogConfig.curDialog = DialogConfig[name]
@@ -346,11 +310,7 @@
     }
   }
 
-
-
 </script>
-
-
 
 <style scoped>
 
@@ -421,12 +381,9 @@
     margin-bottom: 0;
     width: 50%;
   }
-
-
   body {
     font-family: Helvetica Neue, Arial, sans-serif;
     font-size: 14px;
     color: #444;
   }
-
 </style>

@@ -18,8 +18,6 @@
       </el-row>
     </div>
 
-    <!--<div style="width: 1px;margin-left: 10px;margin-right: 5px; background: #000;margin-top: 15px;opacity: 0.3;height: 16px"></div>-->
-
     <div style="margin-top: 20px">
       <el-table
         :data="tableData"
@@ -92,7 +90,6 @@
                 </el-row>
 
               </div>
-
 
               <span slot="footer" class="dialog-footer">
                   <el-button @click="dialogVisible = false">取 消</el-button>
@@ -288,8 +285,6 @@
     margin-bottom: 0;
     width: 50%;
   }
-
-
   body {
     font-family: Helvetica Neue, Arial, sans-serif;
     font-size: 14px;

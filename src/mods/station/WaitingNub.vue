@@ -27,8 +27,6 @@
       </el-row>
     </div>
 
-    <!--<div style="width: 1px;margin-left: 10px;margin-right: 5px; background: #000;margin-top: 15px;opacity: 0.3;height: 16px"></div>-->
-
     <div style="margin-top: 20px">
       <el-table
         :data="tableData5"
@@ -49,11 +47,8 @@
           label="班数"
           prop="Bnumb_tb">
         </el-table-column>
-
       </el-table>
     </div>
-
-
   </div>
 </template>
 
@@ -61,8 +56,6 @@
   import { XTextarea } from 'vux'
   import { Group } from 'vux'
   import { XInput } from 'vux'
-
-
   export default {
     data() {
       return {
@@ -112,7 +105,6 @@
           }
         ],
 
-
         value1: '',
         datetime0: '2018-08-02',
         datetime1: '2018-08-10',
@@ -131,26 +123,9 @@
 
     }
   }
-
-
-
-
 </script>
 
-
-
 <style scoped>
-  /*.el-row {*/
-    /*margin-bottom: 10px;*/
-
-  /*!*&*!*/
-  /*!*:last-child {*!*/
-    /*!*margin-bottom: 0;*!*/
-  /*!*}*!*/
-
-  /*}*/
-
-
   .yd-cell-left {
     margin-left: 220px;
   }
@@ -172,12 +147,9 @@
     margin-bottom: 0;
     width: 50%;
   }
-
-
   body {
     font-family: Helvetica Neue, Arial, sans-serif;
     font-size: 14px;
     color: #444;
   }
-
 </style>

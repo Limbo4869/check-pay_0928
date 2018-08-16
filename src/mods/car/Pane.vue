@@ -8,7 +8,6 @@
   </div>
 </template>
 
-
 <script>
 
   // name="trans-expand" mode="out-in"

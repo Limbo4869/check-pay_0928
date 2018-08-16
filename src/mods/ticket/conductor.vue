@@ -6,18 +6,6 @@
     </yd-navbar>
 
     <div>
-      <!--<el-popover-->
-      <!--placement="right"-->
-      <!--width="400"-->
-      <!--trigger="click">-->
-      <!--<el-table :data="gridData">-->
-      <!--<el-table-column width="150" property="date" label=""></el-table-column>-->
-      <!--<el-table-column width="100" property="name" label=""></el-table-column>-->
-      <!--<el-table-column width="300" property="address" label=""></el-table-column>-->
-      <!--</el-table>-->
-      <!--<el-button slot="reference">click 激活</el-button>-->
-      <!--</el-popover>-->
-
       <el-row :gutter="10">
         <el-col :span="24"><div class="grid-content bg-purple-dark" style="margin: auto 10px">
           <!--<yd-search v-model="value1" :on-submit="submitHandler" placeholder="班次号"  cancel-text></yd-search>-->
@@ -45,9 +33,6 @@
         </div></el-col>
       </el-row>
     </div>
-
-    <!--<div style="width: 1px;margin-left: 10px;margin-right: 5px; background: #000;margin-top: 15px;opacity: 0.3;height: 16px"></div>-->
-
     <div style="margin-top: 20px">
       <el-table
         :data="tableData"
@@ -85,7 +70,6 @@
               <el-form-item label="缴款数">
                 <span>{{ props.row.DTYJPKS_tb }}</span>
               </el-form-item>
-
             </el-form>
           </template>
         </el-table-column>
@@ -103,8 +87,6 @@
         </el-table-column>
       </el-table>
     </div>
-
-
   </div>
 </template>
 
@@ -112,8 +94,6 @@
   import { XTextarea } from 'vux'
   import { Group } from 'vux'
   import { XInput } from 'vux'
-
-
   export default {
     data() {
       return {
@@ -337,8 +317,6 @@
   // },
 </script>
 
-
-
 <style>
   .yd-datetime-input {
     font-size: 12px;
@@ -358,12 +336,9 @@
     margin-bottom: 0;
     width: 50%;
   }
-
-
   body {
     font-family: Helvetica Neue, Arial, sans-serif;
     font-size: 14px;
     color: #444;
   }
-
 </style>

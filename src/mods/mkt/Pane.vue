@@ -18,12 +18,6 @@
           <i class="iconfont icon-">&emsp;</i>
           <div class="aui-grid-label">&emsp;</div>
         </div>
-        <!-- <div class="aui-col-xs-4 aui-border-l aui-border-b">
-         <div class="aui-badge">1</div>
-          <div class="aui-dot"></div>
-          <i class="iconfont icon-huodong"></i>
-          <div class="aui-grid-label">优惠活动</div>
-        </div>-->
       </div>
       <!--<div class="aui-row">
         <div class="aui-col-xs-4 aui-border-b">
