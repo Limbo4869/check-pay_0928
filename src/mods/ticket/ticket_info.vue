@@ -75,8 +75,14 @@
               <el-form-item label="班次号">
                 <span>{{ props.row.BCH_tb }}</span>
               </el-form-item>
-              <el-form-item label="站点">
-                <span>{{ props.row.ZD_tb }}</span>
+              <el-form-item label="起始站">
+                <span>{{ props.row.input_init_tb }}</span>
+              </el-form-item>
+              <el-form-item label="终点站">
+                <span>{{ props.row.input_end_tb }}</span>
+              </el-form-item>
+              <el-form-item label="线路">
+                <span>{{ props.row.XL_tb }}</span>
               </el-form-item>
               <el-form-item label="票号">
                 <span>{{ props.row.PH_tb }}</span>
@@ -123,8 +129,8 @@
           prop="BCH_tb">
         </el-table-column>
         <el-table-column
-          label="站点"
-          prop="ZD_tb">
+          label="线路"
+          prop="XL_tb">
         </el-table-column>
         <el-table-column
           label="检票"
@@ -145,7 +151,6 @@
   export default {
     data() {
       return {
-
         input_init: '',
         input_end: '',
         input_card: '',
@@ -153,6 +158,9 @@
         input_ticket: '',
 
         tableData5: [{
+          input_init_tb: '天河站',
+          input_end_tb: '越秀站',
+          XL_tb: '天河-越秀',
           PH_tb: '009128',
           GH_tb: '012',
           PX_tb: '全票',
@@ -169,11 +177,14 @@
           JPZT_tb:'已检',
         },
           {
+            input_init_tb: '华师站',
+            input_end_tb: '燕塘站',
+            XL_tb: '华师-燕塘',
             PH_tb: '009128',
             GH_tb: '012',
             PX_tb: '全票',
             BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
+            ZD_tb: '华师站',
             PJ_tb: '￥12.0',
             SXF_tb: '0',
             ZH_tb:'06',
@@ -184,11 +195,14 @@
             TP_tb: '0',
             JPZT_tb:'已检',
           }, {
+            input_init_tb: '江夏',
+            input_end_tb: '黄边',
+            XL_tb: '江夏-黄边',
             PH_tb: '009128',
             GH_tb: '012',
             PX_tb: '全票',
             BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
+            ZD_tb: '广园站',
             PJ_tb: '￥12.0',
             SXF_tb: '0',
             ZH_tb:'06',
@@ -198,206 +212,55 @@
             SFZH_tb: '440102199901180428',
             TP_tb: '0',
             JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }, {
-            PH_tb: '009128',
-            GH_tb: '012',
-            PX_tb: '全票',
-            BCH_tb: 'AZ9653',
-            ZD_tb: '天河站',
-            PJ_tb: '￥12.0',
-            SXF_tb: '0',
-            ZH_tb:'06',
-            FCSJ_tb: '2018-08-07 14:00',
-            SPSJ_tb: '2018-08-06 13:50',
-            SJHM_tb: '13560049565',
-            SFZH_tb: '440102199901180428',
-            TP_tb: '0',
-            JPZT_tb:'已检',
-          }
+          },
         ],
 
 
         value1: '',
-        datetime0: '2018-08-02',
-        datetime1: '2018-08-10',
-        yearFormat: '<span style="color:#F00;">{value}<i style="font-size: 12px;margin-left: 1px;">年</i></span>',
-        monthFormat: '<span style="color:#0BB20C;">{value}<i style="font-size: 12px;margin-left: 1px;">月</i></span>',
-        dayFormat: '<span style="color:#FFB400;">{value}<i style="font-size: 12px;margin-left: 1px;">日</i></span>'
       }
     },
     methods: {
-      submitHandler(value) {
-        this.$dialog.toast({mes: `班次号：${value}`});
-      },
-      formatTooltip(val) {
-        return val / 100;
-      }
+      keywordFilter() {
+        let input_init = this.input_init;
+        let input_end = this.input_end;
+        let input_shift = this.input_shift;
+        let input_card = this.input_card;
+        let input_ticket = this.input_ticket;
 
+        if (input_init =='' && input_end =='' && input_shift =='' && input_card =='' && input_ticket =='') {
+          this.tableData = this.tableData5;
+        }else{
+          this.tableData = this.tableData5.filter(item => (
+            !(item.input_init_tb.indexOf(input_init))&&(item.input_end_tb.indexOf(input_end))&&(item.BCH_tb.indexOf(input_shift))
+            &&(item.SFZH_tb.indexOf(input_card))&&(item.PH_tb.indexOf(input_ticket))
+            ))
+        }
+      },
+      tableFilter() {
+        this.keywordFilter();
+      }
+    },
+    watch: {
+      input_init(){
+        this.tableFilter();
+        // console(a);
+      },
+      input_end(){
+        this.tableFilter();
+      },
+      input_card(){
+        this.tableFilter();
+      },
+      input_ticket(){
+        this.tableFilter();
+      },
+      input_shift(){
+        this.tableFilter();
+      },
+    },
+    created(){
+      this.tableData = this.tableData5;
+      this.tableFilter();
     }
   }
 </script>

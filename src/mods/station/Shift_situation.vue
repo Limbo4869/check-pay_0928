@@ -246,12 +246,12 @@
       }
     },
     methods: {
-      submitHandler(value) {
-        this.$dialog.toast({mes: `班次号：${value}`});
-      },
-      formatTooltip(val) {
-        return val / 100;
-      },
+      // submitHandler(value) {
+      //   this.$dialog.toast({mes: `班次号：${value}`});
+      // },
+      // formatTooltip(val) {
+      //   return val / 100;
+      // },
       dateFilter() {
         this.tableData = this.tableData.filter(item => {
           let year = new Date().getFullYear();
@@ -263,16 +263,16 @@
       },
       keywordFilter() {
         let val = this.schfilter;
-        if (val ==''){
+        if (val =='') {
           this.tableData = this.tableData5;
-        } else {
+        }else{
           this.tableData = this.tableData5.filter(item => (
             !item.busnub_tb.indexOf(val)))
           }
         },
       tableFilter() {
         this.keywordFilter();
-        this.dateFilter();
+        this.dateFilter ();
       }
     },
       watch: {

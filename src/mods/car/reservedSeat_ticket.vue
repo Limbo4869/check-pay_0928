@@ -45,11 +45,15 @@
           <template slot-scope="scope">
             <el-button type="text" @click="outerVisible = true">留位出票</el-button>
 
-            <el-dialog title="留位出票" :visible.sync="outerVisible" width="80%">
+            <el-dialog title="留位出票"
+                       :visible.sync="outerVisible"
+                       width="80%"
+                       :before-close="handleClose">
               <el-dialog
                 class="innerBox"
                 width="100%"
                 :visible.sync="innerVisible"
+                :before-close="handleClose"
                 append-to-body>
 
                 <div class="title_seat" >
@@ -209,8 +213,8 @@
                 <el-button type="success" @click="innerVisible = true" plain>座号出票</el-button>
               </div>
               <div slot="footer" class="dialog-footer">
-                <el-button @click="dialogFormVisible = false">取 消</el-button>
-                <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+                <el-button @click="outerVisible = false">取 消</el-button>
+                <el-button type="primary" @click="outerVisible = false">确 定</el-button>
               </div>
             </el-dialog>
           </template>
@@ -296,6 +300,13 @@
       },
       formatTooltip(val) {
         return val / 100;
+      },
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+          done();
+         })
+          .catch(_ => {});
       },
       // rowChick:function(row, event, column) {
       //   this.$router.push({path:'/station/later_situation'});

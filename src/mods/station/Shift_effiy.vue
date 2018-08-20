@@ -2,11 +2,8 @@
   <div>
     <yd-navbar title="发班效率" style="margin-bottom: 10px">
       <div slot="left" @click="goView('/station/station')" class="iconfont icon-back"></div>
-      <!--<div slot="right" @click="goView('/bus/history')" class="el-icon-search"></div>-->
     </yd-navbar>
-
     <div>
-
         <el-row>
           <el-col :span="12">
             <div class="grid-content bg-purple">
@@ -15,19 +12,15 @@
             </div>
           </el-col>
           <el-col :span="12">
-            <!--<div class="grid-content bg-purple-light">-->
-            <div>
-             <!--<span>时间设定</span> <span><el-input v-model="input_min" placeholder="15"></el-input></span>-->
-              <!--<el-input-number v-model="num8" controls-position="right" @change="handleChange" :min="1" :max="60"></el-input-number>-->
-              <el-input-number v-model="num4"></el-input-number>
+            <div class="limitTime">
+              <el-input-number v-model="limitTime"></el-input-number>
             </div>
-            <!--</div>-->
           </el-col>
         </el-row>
     </div>
     <div style="margin-top: 20px">
       <el-table
-        :data="tableData5"
+        :data="tableData"
         height="550"
         stripe
         highlight-current-row
@@ -64,16 +57,15 @@
   export default {
     data() {
       return {
-        num4: 15,
+        limitTime: 15,
         radio: '1',
-        input_min: '',
-
-        tableData5: [{
+        tableData5: [
+          {
           bc_tb: 'AZ4321',
           zdname_tb: '天河站',
           jpkou_tb: '08',
           fbtime_tb: '12min'
-        },
+          },
           {
             bc_tb: 'AZ4340',
             zdname_tb: '越秀站',
@@ -93,17 +85,17 @@
             bc_tb: 'GR4321',
             zdname_tb: '火车站',
             jpkou_tb: '01',
-            fbtime_tb: '10min'
+            fbtime_tb: '15min'
           }, {
             bc_tb: 'TY5447',
             zdname_tb: '越秀站',
             jpkou_tb: '06',
-            fbtime_tb: '01min'
+            fbtime_tb: '10min'
           }, {
             bc_tb: 'GR4321',
             zdname_tb: '广园站',
             jpkou_tb: '08',
-            fbtime_tb: '02min'
+            fbtime_tb: '11min'
           }, {
             bc_tb: 'AZ4345',
             zdname_tb: '越秀站',
@@ -113,22 +105,22 @@
             bc_tb: 'GR4321',
             zdname_tb: '天河站',
             jpkou_tb: '08',
-            fbtime_tb: '04min'
+            fbtime_tb: '12min'
           }, {
             bc_tb: 'TY5447',
             zdname_tb: '广园站',
             jpkou_tb: '08',
-            fbtime_tb: '09min'
+            fbtime_tb: '13min'
           }, {
             bc_tb: 'PO347',
             zdname_tb: '天河站',
             jpkou_tb: '08',
-            fbtime_tb: '19min'
+            fbtime_tb: '13min'
           }, {
             bc_tb: 'TY5474',
             zdname_tb: '火车站',
             jpkou_tb: '08',
-            fbtime_tb: '22min'
+            fbtime_tb: '14min'
           }, {
             bc_tb: 'PO3477',
             zdname_tb: '火车站',
@@ -146,34 +138,48 @@
             fbtime_tb: '11min'
           }
         ],
-
-
-        value1: '',
-        datetime0: '2018-08-02',
-        datetime1: '2018-08-10',
-        yearFormat: '<span style="color:#F00;">{value}<i style="font-size: 12px;margin-left: 1px;">年</i></span>',
-        monthFormat: '<span style="color:#0BB20C;">{value}<i style="font-size: 12px;margin-left: 1px;">月</i></span>',
-        dayFormat: '<span style="color:#FFB400;">{value}<i style="font-size: 12px;margin-left: 1px;">日</i></span>'
+        tableData:[],
+        // schfilter: '',
       }
     },
     methods: {
-      submitHandler(value) {
-        this.$dialog.toast({mes: `班次号：${value}`});
+      // submitHandler(value) {
+      //   this.$dialog.toast({mes: `班次号：${value}`});
+      // },
+      // formatTooltip(val) {
+      //   return val / 100;
+      // },
+      // formatter(row, column) {
+      //   return row.address;
+      // },
+      // filterTag(value, row) {
+      //   return row.tag === value;
+      // },
+      // filterHandler(value, row, column) {
+      //   const property = column['property'];
+      //   return row[property] === value;
+      // },
+      keywordFilter() {
+        let val = this.limitTime;
+        if (val =='') {
+          this.tableData = this.tableData5;
+        }else{
+          this.tableData = this.tableData5.filter(item => (
+            !item.fbtime_tb.indexOf(val)))
+        }
       },
-      formatTooltip(val) {
-        return val / 100;
-      },
-      formatter(row, column) {
-        return row.address;
-      },
-      filterTag(value, row) {
-        return row.tag === value;
-      },
-      filterHandler(value, row, column) {
-        const property = column['property'];
-        return row[property] === value;
+      tableFilter() {
+        this.keywordFilter();
       }
-
+    },
+    watch: {
+      schfilter(){
+        this.tableFilter();
+      },
+    },
+    created(){
+      this.tableData = this.tableData5;
+      this.tableFilter();
     }
   }
 
@@ -185,6 +191,9 @@
 
 
 <style>
+  .limitTime {
+    touch-action: none;
+  }
   .el-radio+.el-radio {
     margin-left: 5px;
     margin-top: 15px;

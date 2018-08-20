@@ -29,31 +29,31 @@
         <div class="aui-row">
           <div class="aui-col-xs-4" @click="goView('/car/reservedSeat_ticket')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-order " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">留位出票</div>
+            <div class="aui-grid-label">留 位 出 票</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/car/reservedSeat_situation')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-detail " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">留位情况</div>
+            <div class="aui-grid-label">留 位 情 况</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/car/reservedSeat_code')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-scan " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">出票二维码</div>
+            <div class="aui-grid-label">出 票 二 维 码</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/car/TimeoutTicket')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-time1 " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">超时出票</div>
+            <div class="aui-grid-label">超 时 出 票</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/car/reportQuery')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-category1" style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">报表查询</div>
+            <div class="aui-grid-label">报 表 查 询</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/car/ticketQuery')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-fullscreen " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">车票查询</div>
+            <div class="aui-grid-label">车 票 查 询</div>
           </div>
-          <div class="aui-col-xs-4">
+          <div class="aui-col-xs-4" @click="goView('/car/checkTicket')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-edit " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">验票</div>
+            <div class="aui-grid-label">验 票</div>
           </div>
         </div>
       </section>

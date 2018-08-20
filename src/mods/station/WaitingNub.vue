@@ -10,14 +10,14 @@
         <el-col :span="8"><div class="grid-content bg-purple">
           <el-input
             placeholder="请输入检票口"
-            v-model="input_jpk"
+            v-model="checkPlace_tb"
             clearable>
           </el-input>
         </div></el-col>
         <el-col :span="8"><div class="grid-content bg-purple-light">
           <el-input
             placeholder="请输入线路"
-            v-model="input_xl"
+            v-model="rouce_tb"
             clearable>
           </el-input>
         </div></el-col>
@@ -59,8 +59,8 @@
   export default {
     data() {
       return {
-        input_jpk:'',
-        input_xl:'',
+        checkPlace_tb:'',
+        rouce_tb:'',
 
         tableData5: [{
           sjd_tb: '1-2',
@@ -114,13 +114,35 @@
       }
     },
     methods: {
-      submitHandler(value) {
-        this.$dialog.toast({mes: `班次号：${value}`});
+      // submitHandler(value) {
+      //   this.$dialog.toast({mes: `班次号：${value}`});
+      // },
+      // formatTooltip(val) {
+      //   return val / 100;
+      // }
+      keywordFilter() {
+        let val_1 = this.schfilter;
+        let val_2 = this.schfilter;
+        if (val_1&&val_2 =='') {
+          this.tableData = this.tableData5;
+        }else{
+          this.tableData = this.tableData5.filter(item => (
+            !(item.checkPlace_tb.indexOf(val))&&(item.rouce_tb.indexOf(val))
+            ))
+        }
       },
-      formatTooltip(val) {
-        return val / 100;
+      tableFilter() {
+        this.keywordFilter();
       }
-
+    },
+    watch: {
+      schfilter(){
+        this.tableFilter();
+      },
+    },
+    created(){
+      this.tableData = this.tableData5;
+      this.tableFilter();
     }
   }
 </script>

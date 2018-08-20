@@ -31,17 +31,17 @@
             <!--<div class="aui-badge">88</div>-->
             <!--<i class="aui-iconfont aui-icon-home"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-ticket " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">车票信息查询</div>
+            <div class="aui-grid-label">车 票 信 息 </div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/ticket/conductor')">
             <!--<i class="aui-iconfont aui-icon-gear"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-myline " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">按售票员查询</div>
+            <div class="aui-grid-label">按 售 票 员 查 询</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/ticket/reservedSeat_sell')">
             <!--<i class="aui-iconfont aui-icon-map"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-sorting " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">留位售出</div>
+            <div class="aui-grid-label">留 位 售 出</div>
           </div>
 
         </div>

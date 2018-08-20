@@ -26,17 +26,17 @@
 
     <div>
       <section class="aui-grid aui-margin-b-15">
-        <div class="aui-row" @click="goView('/main/station')">
-          <div class="aui-col-xs-4">
+        <div class="aui-row" >
+          <div class="aui-col-xs-4" @click="goView('/usermng/registCheck')">
             <!--<div class="aui-badge">88</div>-->
             <!--<i class="aui-iconfont aui-icon-home"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-refresh " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">注册审核</div>
+            <div class="aui-grid-label">注 册 审 核</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/main/station')">
             <!--<i class="aui-iconfont aui-icon-gear"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-setting " style="opacity: 0.5"></i></div>
-            <div class="aui-grid-label">权限管理</div>
+            <div class="aui-grid-label">权 限 管 理</div>
           </div>
 
         </div>

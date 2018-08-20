@@ -31,35 +31,32 @@
             <!--<div class="aui-badge">88</div>-->
             <!--<i class="aui-iconfont aui-icon-home"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px" ><i class="iconfont icon-train " style="opacity: 0.6"></i></div>
-            <div class="aui-grid-label">班次情况</div>
+            <div class="aui-grid-label">班 次 情 况</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/station/Shift_effiy')">
             <!--<i class="aui-iconfont aui-icon-gear"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-time " style="opacity: 0.7"></i></div>
-            <div class="aui-grid-label">发班效率</div>
+            <div class="aui-grid-label">发 班 效 率</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/station/later')">
             <!--<i class="aui-iconfont aui-icon-map"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-loading " style="opacity: 0.7"></i></div>
-            <div class="aui-grid-label">晚点</div>
+            <div class="aui-grid-label">晚 点</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/station/WaitingNub')">
             <!--<i class="aui-iconfont aui-icon-calendar"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-back2top " style="opacity: 0.7"></i></div>
-            <div class="aui-grid-label">侯乘人数</div>
+            <div class="aui-grid-label">侯 乘 人 数</div>
           </div>
           <div class="aui-col-xs-4" @click="goView('/station/CSRflow')">
             <!--<div class="aui-badge"></div>-->
             <!--<i class="aui-iconfont aui-icon-date"></i>-->
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-myline" style="opacity: 0.7"></i></div>
-            <div class="aui-grid-label">客流人数</div>
+            <div class="aui-grid-label">客 流 人 数</div>
           </div>
-
-
         </div>
       </section>
     </div>
-
 
     <footer class="aui-bar aui-bar-tab" id="footer">
         <div class="aui-bar-tab-item aui-active" tapmode @click="goView('/station/Station')">

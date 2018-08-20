@@ -57,6 +57,9 @@ export default {
 }
 </script>
 <style type="text/css" scoped>
+  .input_01 .yd-cell-left {
+    margin-top: 0px !important;
+  }
   .input_01 .yd-cell-item{
     padding-left:0!important;
   }

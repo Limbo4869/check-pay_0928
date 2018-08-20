@@ -71,11 +71,13 @@
             <el-dialog
               title=""
               :visible.sync="outerVisible"
+              :before-close="handleClose"
               width="70%">
               <el-dialog
                 width="100%"
                 title="请把身份证对准扫描框"
                 :visible.sync="innerVisible"
+                :before-close="handleClose"
                 append-to-body>
               </el-dialog>
 
@@ -156,8 +158,8 @@
                 <el-button type="success" plain>微信支付</el-button>
               </div>
               <span slot="footer" class="dialog-footer">
-                  <el-button @click="dialogVisible = false">取 消</el-button>
-                  <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+                  <el-button @click="outerVisible = false">取 消</el-button>
+                  <el-button type="primary" @click="outerVisible = false">确 定</el-button>
               </span>
             </el-dialog>
           </template>
@@ -297,7 +299,13 @@
       formatTooltip(val) {
         return val / 100;
       },
-
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
+      },
       keywordFilter() {
         let val = this.schfilter;
         if (val ==''){

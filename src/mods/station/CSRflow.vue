@@ -14,7 +14,7 @@
             clearable>
           </el-input>
         </div></el-col>
-        <el-col :span="8"><div class="grid-content bg-purple-light">
+        <el-col :span="8"><div class="grid-content bg-purple-light" style="margin-top: 5px">
           <yd-cell-item>
                   <span slot="left" style="margin-left: 2px">
                      <yd-datetime type="date" style="height: 30px;line-height: 30px;float: left;" v-model="datetime1"></yd-datetime>
@@ -164,6 +164,9 @@
 
   .yd-cell-item {
     padding-left:0rem!important
+  }
+  .yd-cell-left{
+    margin-top: 6px!important;
   }
 
   .yd-datetime-input {
