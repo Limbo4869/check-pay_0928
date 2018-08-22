@@ -64,7 +64,7 @@
     </div>
     <div style="margin-top: 20px">
       <el-table
-        :data="tableData5"
+        :data="tableData"
         height="550"
         highlight-current-row
         stripe
@@ -213,9 +213,47 @@
             TP_tb: '0',
             JPZT_tb:'已检',
           },
+          {
+            input_init_tb: '江夏',
+            input_end_tb: '海珠',
+            XL_tb: '江夏-海珠',
+            PH_tb: '009128',
+            GH_tb: '012',
+            PX_tb: '全票',
+            BCH_tb: 'AT9653',
+            ZD_tb: '广园站',
+            PJ_tb: '￥12.0',
+            SXF_tb: '0',
+            ZH_tb:'06',
+            FCSJ_tb: '2018-08-07 14:00',
+            SPSJ_tb: '2018-08-06 13:50',
+            SJHM_tb: '13560049565',
+            SFZH_tb: '440102199901180428',
+            TP_tb: '0',
+            JPZT_tb:'已检',
+          },
+          {
+            input_init_tb: '江夏',
+            input_end_tb: '海珠',
+            XL_tb: '江夏-海珠',
+            PH_tb: '009128',
+            GH_tb: '012',
+            PX_tb: '全票',
+            BCH_tb: 'GZ9653',
+            ZD_tb: '广园站',
+            PJ_tb: '￥12.0',
+            SXF_tb: '0',
+            ZH_tb:'06',
+            FCSJ_tb: '2018-08-07 14:00',
+            SPSJ_tb: '2018-08-06 13:50',
+            SJHM_tb: '13560049565',
+            SFZH_tb: '540102199901180428',
+            TP_tb: '0',
+            JPZT_tb:'已检',
+          }
         ],
 
-
+        tableData:[],
         value1: '',
       }
     },
@@ -231,8 +269,8 @@
           this.tableData = this.tableData5;
         }else{
           this.tableData = this.tableData5.filter(item => (
-            !(item.input_init_tb.indexOf(input_init))&&(item.input_end_tb.indexOf(input_end))&&(item.BCH_tb.indexOf(input_shift))
-            &&(item.SFZH_tb.indexOf(input_card))&&(item.PH_tb.indexOf(input_ticket))
+            !(item.input_init_tb.indexOf(input_init))&&!(item.input_end_tb.indexOf(input_end))&&!(item.BCH_tb.indexOf(input_shift))
+            &&!(item.SFZH_tb.indexOf(input_card))&&!(item.PH_tb.indexOf(input_ticket))
             ))
         }
       },

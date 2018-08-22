@@ -125,7 +125,7 @@
           SPY_tb: 'XXX',
           BC_tb: 'AZ4321',
           XL_tb: '天河',
-          FCRQ_tb: '08-06 15:39',
+          FCRQ_tb: '08-26 15:39',
         },
           {
             ZH_tb: '06',
@@ -133,7 +133,7 @@
             SPY_tb: 'XXX',
             BC_tb: 'AZ4321',
             XL_tb: '天河',
-            FCRQ_tb: '08-06 15:39',
+            FCRQ_tb: '08-26 15:39',
           }, {
             FCRQ_tb: '08-27 15:39',
             ZH_tb: '06',
@@ -142,7 +142,7 @@
             BC_tb: 'AZ4321',
             XL_tb: '天河',
           }, {
-            FCRQ_tb: '08-21 15:39',
+            FCRQ_tb: '08-26 15:39',
             ZH_tb: '06',
             PH_tb: '00045',
             SPY_tb: 'XXX',
@@ -163,35 +163,35 @@
             BC_tb: 'AZ4321',
             XL_tb: '天河',
           }, {
-            FCRQ_tb: '08-17 15:39',
+            FCRQ_tb: '08-25 15:39',
             ZH_tb: '06',
             PH_tb: '00045',
             SPY_tb: 'XXX',
             BC_tb: 'AZ4321',
             XL_tb: '天河',
           }, {
-            FCRQ_tb: '08-04 15:39',
+            FCRQ_tb: '08-25 15:39',
             ZH_tb: '06',
             PH_tb: '00045',
             SPY_tb: 'XXX',
             BC_tb: 'AZ4321',
             XL_tb: '天河',
           }, {
-            FCRQ_tb: '08-10 15:39',
+            FCRQ_tb: '08-27 15:39',
             ZH_tb: '06',
             PH_tb: '00045',
             SPY_tb: 'XXX',
             BC_tb: 'AZ4321',
             XL_tb: '天河',
           }, {
-            FCRQ_tb: '08-14 15:39',
+            FCRQ_tb: '08-27 15:39',
             ZH_tb: '06',
             PH_tb: '00045',
             SPY_tb: 'XXX',
             BC_tb: 'AZ4321',
             XL_tb: '天河',
           }, {
-            FCRQ_tb: '08-14 15:39',
+            FCRQ_tb: '08-26 15:39',
             ZH_tb: '06',
             PH_tb: '00045',
             SPY_tb: 'XXX',
@@ -202,7 +202,6 @@
         tableData:[],
         schfilter: '',
         value1: '',
-        datetime0: '08-01',
         datetime1: '08-26',
       }
     },
@@ -213,35 +212,20 @@
       formatTooltip(val) {
         return val / 100;
       },
-      dateFilter() {
-        this.tableData = this.tableData.filter(item => {
-          let year = new Date().getFullYear();
-          let end = new Date(year + '-' + this.datetime1).getTime();
-          let item_data = new Date(year + '-' + item.FCRQ_tb).getTime();
-          return  item_data <= end;
-        });
-      },
       keywordFilter() {
-        let val = this.schfilter;
+        let val = this.datetime1;
         if (val ==''){
           this.tableData = this.tableData5;
         } else {
           this.tableData = this.tableData5.filter(item => (
-            !item.busnub_tb.indexOf(val)))
+            !item.FCRQ_tb.indexOf(val)))
         }
       },
       tableFilter() {
         this.keywordFilter();
-        this.dateFilter();
       }
     },
     watch: {
-      schfilter(){
-        this.tableFilter();
-      },
-      datetime0(){
-        this.tableFilter();
-      },
       datetime1(){
         this.tableFilter();
       }

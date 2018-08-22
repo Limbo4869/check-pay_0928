@@ -22,7 +22,7 @@
 
     <div style="margin-top: 20px">
       <el-table
-        :data="tableData5"
+        :data="tableData"
         height="550"
         stripe
         highlight-current-row
@@ -246,44 +246,44 @@
         },
         formLabelWidth: '120px',
         tableData5: [{
-          LWRQ_tb: '2018-08-13',
+          LWRQ_tb: '2018-08-21',
           FCSJ_tb: '08-15 7:12',
           BC_tb: 'AZ321',
         }, {
-          LWRQ_tb: '2018-08-03',
-          FCSJ_tb: '08-15 7:12',
-          BC_tb: 'AZ321',
-        }, {
-          LWRQ_tb: '2018-08-02',
-          FCSJ_tb: '08-15 7:12',
-          BC_tb: 'AZ321',
-        }, {
-          LWRQ_tb: '2018-08-05',
-          FCSJ_tb: '08-15 7:12',
-          BC_tb: 'AZ321',
-        }, {
-          LWRQ_tb: '2018-08-19',
-          FCSJ_tb: '08-15 7:12',
-          BC_tb: 'AZ321',
-        }, {
-          LWRQ_tb: '2018-08-10',
-          FCSJ_tb: '08-15 7:12',
-          BC_tb: 'AZ321',
-        }, {
-          LWRQ_tb: '2018-08-16',
+          LWRQ_tb: '2018-08-21',
           FCSJ_tb: '08-15 7:12',
           BC_tb: 'AZ321',
         }, {
           LWRQ_tb: '2018-08-23',
           FCSJ_tb: '08-15 7:12',
           BC_tb: 'AZ321',
+        }, {
+          LWRQ_tb: '2018-08-23',
+          FCSJ_tb: '08-15 7:12',
+          BC_tb: 'AZ321',
+        }, {
+          LWRQ_tb: '2018-08-24',
+          FCSJ_tb: '08-15 7:12',
+          BC_tb: 'AZ321',
+        }, {
+          LWRQ_tb: '2018-08-22',
+          FCSJ_tb: '08-15 7:12',
+          BC_tb: 'AZ321',
+        }, {
+          LWRQ_tb: '2018-08-22',
+          FCSJ_tb: '08-15 7:12',
+          BC_tb: 'AZ321',
+        }, {
+          LWRQ_tb: '2018-08-22',
+          FCSJ_tb: '08-15 7:12',
+          BC_tb: 'AZ321',
         }
         ],
 
-
+        tableData: [],
         value1: '',
         radio: '1',
-        datetime0: '2018-08-02',
+        datetime0: '2018-08-22',
         datetime1: '2018-08-10',
         yearFormat: '<span style="color:#F00;">{value}<i style="font-size: 12px;margin-left: 1px;">年</i></span>',
         monthFormat: '<span style="color:#0BB20C;">{value}<i style="font-size: 12px;margin-left: 1px;">月</i></span>',
@@ -295,12 +295,12 @@
       //   DialogConfig.curDialog = DialogConfig[name]
       // },
 
-      submitHandler(value) {
-        this.$dialog.toast({mes: `班次号：${value}`});
-      },
-      formatTooltip(val) {
-        return val / 100;
-      },
+      // submitHandler(value) {
+      //   this.$dialo[g.toast({mes: `班次号：${value}`});
+      // },
+      // formatTooltip(val) {
+      //   return val / 100;
+      // },
       handleClose(done) {
         this.$confirm('确认关闭？')
           .then(_ => {
@@ -311,14 +311,35 @@
       // rowChick:function(row, event, column) {
       //   this.$router.push({path:'/station/later_situation'});
       // },
-      handleEdit(index, row) {
-          console.log(index, row);
-        },
-      change(a) {
-        a.style.backgroundColor =red;
+      // handleEdit(index, row) {
+      //     console.log(index, row);
+      //   },
+      // change(a) {
+      //   a.style.backgroundColor =red;
+      // }
+      keywordFilter() {
+        let val = this.datetime0;
+        if (val =='') {
+          this.tableData = this.tableData5;
+        }else{
+          this.tableData = this.tableData5.filter(item => (
+            !item.LWRQ_tb.indexOf(val)))
+        }
+      },
+      tableFilter() {
+        this.keywordFilter();
       }
-
+    },
+    watch: {
+      datetime0(){
+        this.tableFilter();
+      }
+    },
+    created(){
+      this.tableData = this.tableData5;
+      this.tableFilter();
     }
+
   }
 
 </script>

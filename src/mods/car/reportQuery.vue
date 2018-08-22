@@ -74,57 +74,37 @@
   export default {
     data() {
       return {
-        tableData5: [{
-            JSJE_tb: '08-23 9:39',
+        tableData5: [
+          {
+            JSSJ_tb : '08-21 9:39',
             RS_tb: '15',
             SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }, {
-            JSJE_tb: '08-07 7:39',
+            JSJE_tb: '￥120.0',
+          },
+          {
+            JSSJ_tb : '08-03 9:39',
             RS_tb: '15',
             SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }, {
-            JSJE_tb: '08-05 8:39',
+            JSJE_tb: '￥120.0',
+          },
+          {
+            JSSJ_tb : '08-22 9:39',
             RS_tb: '15',
             SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }, {
-            JSJE_tb: '08-25 9:39',
+            JSJE_tb: '￥120.0',
+          },
+          {
+            JSSJ_tb : '08-25 9:39',
             RS_tb: '15',
             SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }, {
-            JSJE_tb: '08-15 7:39',
+            JSJE_tb: '￥120.0',
+          },
+          {
+            JSSJ_tb : '08-25 9:39',
             RS_tb: '15',
             SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }, {
-            JSJE_tb: '08-15 9:39',
-            RS_tb: '15',
-            SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }, {
-            JSJE_tb: '08-15 8:39',
-            RS_tb: '15',
-            SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }, {
-            JSJE_tb: '08-17 7:39',
-            RS_tb: '15',
-            SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }, {
-            JSJE_tb: '08-05 7:39',
-            RS_tb: '15',
-            SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }, {
-            JSJE_tb: '08-15 7:39',
-            RS_tb: '15',
-            SPJE_tb: '￥8.0',
-            JSSJ_tb: '￥120.0',
-          }
+            JSJE_tb: '￥120.0',
+          },
         ],
         tableData:[],
         schfilter: '',
@@ -145,7 +125,7 @@
           let year = new Date().getFullYear();
           let start = new Date(year + '-' + this.datetime0).getTime();
           let end = new Date(year + '-' + this.datetime1).getTime();
-          let item_data = new Date(year + '-' + JSSJ_tb.time_tb).getTime();
+          let item_data = new Date(year + '-' + item.JSSJ_tb).getTime();
           return start <= item_data && item_data <= end;
         });
       },

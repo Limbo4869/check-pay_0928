@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <yd-navbar title="留位情况" style="margin-bottom: 10px">
       <div slot="left" @click="goView('/car/car')" class="iconfont icon-back"></div>
@@ -11,7 +11,7 @@
           <div class="grid-content bg-purple">
             <yd-cell-item>
                   <span slot="left" style="margin-left: 2px">
-                     <yd-datetime type="date" style="height: 30px;line-height: 30px;float: left;" v-model="datetime0"></yd-datetime>
+                     <yd-datetime type="day" style="height: 30px;line-height: 30px;float: left;" v-model="datetime0"></yd-datetime>
                   </span>
               <span slot="left" style="margin-left: 5px" class="el-icon-caret-bottom"></span>
               <!--<span slot="left" style="margin-left: 5px;" ><i class="iconfont icon-arrow-down " style="opacity: 0.7;width: 2px"></i></span>-->
@@ -23,13 +23,17 @@
 
     <div style="margin-top: 20px">
       <el-table
-        :data="tableData5"
+        :data="tableData"
         height="550"
         stripe
         highlight-current-row
         @row-click="rowChick"
         style="width: 100%">
 
+        <el-table-column
+          label="时间"
+          prop="time_tb">
+        </el-table-column>
         <el-table-column
           label="班次"
           prop="BC_tb">
@@ -39,11 +43,11 @@
           prop="ZD_tb">
         </el-table-column>
         <el-table-column
-          label="计划发车"
+          label="发车"
           prop="JHFC_tb">
         </el-table-column>
         <el-table-column
-          label="留位未出票"
+          label="未出票"
           prop="WCP_tb">
         </el-table-column>
       </el-table>
@@ -61,49 +65,58 @@
     data() {
       return {
         tableData5: [{
-          ZD_tb: '天河站',
-          BC_tb: 'AZ4321',
+          time_tb:'08-21',
+          ZD_tb: '天河',
+          BC_tb: 'AZ321',
+          JHFC_tb: '08-14 07:10',
+          WCP_tb: '0',
+        }, {
+          time_tb:'08-22',
+          ZD_tb: '天河',
+          BC_tb: 'AZ421',
+          JHFC_tb: '08-14 07:10',
+          WCP_tb: '0',
+        }, {
+          time_tb:'08-20',
+          ZD_tb: '天河',
+          BC_tb: 'AZ432',
+          JHFC_tb: '08-14 07:10',
+          WCP_tb: '0',
+        }, {
+          time_tb:'08-27',
+          ZD_tb: '天河',
+          BC_tb: 'AZ432',
+          JHFC_tb: '08-14 07:10',
+          WCP_tb: '0',
+        }, {
+          time_tb:'08-20',
+          ZD_tb: '天河',
+          BC_tb: 'AZ431',
+          JHFC_tb: '08-14 07:10',
+          WCP_tb: '0',
+        }, {
+          time_tb:'08-20',
+          ZD_tb: '天河',
+          BC_tb: 'AZ321',
+          JHFC_tb: '08-14 07:10',
+          WCP_tb: '0',
+        }, {
+          time_tb:'08-20',
+          ZD_tb: '天河',
+          BC_tb: 'AZ431',
           JHFC_tb: '08-14 7:10',
           WCP_tb: '0',
         }, {
-          ZD_tb: '天河站',
-          BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 7:10',
-          WCP_tb: '0',
-        }, {
-          ZD_tb: '天河站',
-          BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 7:10',
-          WCP_tb: '0',
-        }, {
-          ZD_tb: '天河站',
-          BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 7:10',
-          WCP_tb: '0',
-        }, {
-          ZD_tb: '天河站',
-          BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 7:10',
-          WCP_tb: '0',
-        }, {
-          ZD_tb: '天河站',
-          BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 7:10',
-          WCP_tb: '0',
-        }, {
-          ZD_tb: '天河站',
-          BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 7:10',
-          WCP_tb: '0',
-        }, {
-          ZD_tb: '天河站',
-          BC_tb: 'AZ4321',
-          JHFC_tb: '08-14 7:10',
+          time_tb:'08-20',
+          ZD_tb: '天河',
+          BC_tb: 'AZ321',
+          JHFC_tb: '08-14 07:10',
           WCP_tb: '0',
         }
         ],
+        tableData: [],
         value1: '',
-        datetime0: '2018-08-02',
+        datetime0: '08-20',
         datetime1: '2018-08-10',
         yearFormat: '<span style="color:#F00;">{value}<i style="font-size: 12px;margin-left: 1px;">年</i></span>',
         monthFormat: '<span style="color:#0BB20C;">{value}<i style="font-size: 12px;margin-left: 1px;">月</i></span>',
@@ -119,8 +132,28 @@
       },
       rowChick:function(row, event, column) {
         this.$router.push({path:'/station/later_situation'});
+      },
+      keywordFilter() {
+        let val = this.datetime0;
+        if (val =='') {
+          this.tableData = this.tableData5;
+        }else{
+          this.tableData = this.tableData5.filter(item => (
+            !item.time_tb.indexOf(val)))
+        }
+      },
+      tableFilter() {
+        this.keywordFilter();
       }
-
+    },
+    watch: {
+      datetime0(){
+        this.tableFilter();
+      }
+    },
+    created(){
+      this.tableData = this.tableData5;
+      this.tableFilter();
     }
   }
 

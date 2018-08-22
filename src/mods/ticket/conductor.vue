@@ -14,8 +14,8 @@
         </div></el-col>
       </el-row>
       <el-row>
-        <el-col :span="12"><div class="grid-content bg-purple">
-          <yd-cell-item>
+        <el-col :span="12"><div class="grid-content bg-purple-left " style="margin-top: 10px">
+          <yd-cell-item  style="margin-top: 10px">
                   <span slot="left" style="margin-left: 2px">
                      <yd-datetime type="day" style="height: 30px;line-height: 30px;float: left;" v-model="datetime0"></yd-datetime>
                   </span>
@@ -23,8 +23,8 @@
             <!--<span slot="left" style="margin-left: 5px;" ><i class="iconfont icon-arrow-down " style="opacity: 0.7;width: 2px"></i></span>-->
           </yd-cell-item>
         </div></el-col>
-        <el-col :span="12"><div class="grid-content bg-purple-light">
-          <yd-cell-item>
+        <el-col :span="12"><div class="grid-content bg-purple-right" style="margin-top: 10px">
+          <yd-cell-item  >
                   <span slot="left" style="margin-left: 2px">
                      <yd-datetime type="day" style="height: 30px;line-height: 30px;float: left;" v-model="datetime1"></yd-datetime>
                   </span>
@@ -99,7 +99,7 @@
       return {
 
         tableData5: [{
-          GH_tb: '009',
+          GH_tb: '006',
           SPY_name_tb: '张三',
           SPZS_tb: '15',
           JE_tb: '￥234.00',
@@ -107,7 +107,7 @@
           SXF_tb: '0',
           MPJS_tb: '0',
           DTYJPKS_tb:'0',
-          time_tb: '08-15'
+          time_tb: '08-25'
         },
           {
             GH_tb: '009',
@@ -120,7 +120,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-15'
           }, {
-            GH_tb: '009',
+            GH_tb: '006',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -130,7 +130,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-15'
           }, {
-            GH_tb: '009',
+            GH_tb: '007',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -140,7 +140,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-05'
           }, {
-            GH_tb: '009',
+            GH_tb: '007',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -150,7 +150,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-25'
           }, {
-            GH_tb: '009',
+            GH_tb: '005',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -160,7 +160,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-19'
           }, {
-            GH_tb: '009',
+            GH_tb: '005',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -170,7 +170,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-17'
           }, {
-            GH_tb: '009',
+            GH_tb: '006',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -180,7 +180,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-09'
           }, {
-            GH_tb: '009',
+            GH_tb: '008',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -190,7 +190,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-03'
           }, {
-            GH_tb: '009',
+            GH_tb: '007',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -220,7 +220,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-22'
           }, {
-            GH_tb: '009',
+            GH_tb: '007',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -230,7 +230,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-27'
           }, {
-            GH_tb: '009',
+            GH_tb: '008',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -240,7 +240,7 @@
             DTYJPKS_tb:'0',
             time_tb: '08-15'
           }, {
-            GH_tb: '009',
+            GH_tb: '008',
             SPY_name_tb: '张三',
             SPZS_tb: '15',
             JE_tb: '￥234.00',
@@ -255,7 +255,7 @@
         schfilter: '',
         value1: '',
         datetime0: '08-08',
-        datetime1: '08-16',
+        datetime1: '08-26',
       }
     },
     methods: {
@@ -305,19 +305,13 @@
     }
   }
 
-  // watch: {
-  //   schfilter: function(val, oldVal){
-  //     if(val==''){
-  //       this.tableData=this.tableData5;
-  //     }else{
-  //       this.tableData = this.tableData5.filter( item => (!item.busnub_tb.indexOf(val)));
-  //       console.log(val);
-  //     }
-  //   },
-  // },
 </script>
 
 <style>
+
+  .yd-cell-left {
+    margin-top: 6px!important;
+  }
   .yd-datetime-input {
     font-size: 12px;
   }

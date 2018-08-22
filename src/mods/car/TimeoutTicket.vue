@@ -9,19 +9,19 @@
       <el-row :gutter="-1">
         <el-col :span="8">
           <div class="grid-content bg-purple-dark" style="margin: auto 10px">
-            <el-input placeholder="起始站"  v-model="schfilter" clearable>
+            <el-input placeholder="起始站"  v-model="input_init" clearable>
             </el-input>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple-dark" style="margin: auto 10px">
-            <el-input placeholder="终点站"  v-model="schfilter" clearable>
+            <el-input placeholder="终点站"  v-model="input_end" clearable>
             </el-input>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple-dark" style="margin: auto 10px">
-            <el-input placeholder="班次号"  v-model="schfilter" clearable>
+            <el-input placeholder="班次号"  v-model="input_shift" clearable>
             </el-input>
           </div>
         </el-col>
@@ -42,6 +42,12 @@
               </el-form-item>
               <el-form-item label="线路">
                 <span>{{ props.row.XL_tb  }}</span>
+              </el-form-item>
+              <el-form-item label="起始">
+                <span>{{ props.row.start  }}</span>
+              </el-form-item>
+              <el-form-item label="终点">
+                <span>{{ props.row.end }}</span>
               </el-form-item>
               <el-form-item label="票价">
                 <span>{{ props.row.PJ_tb }}</span>
@@ -200,6 +206,8 @@
           PJ_tb: '￥90',
           XL_tb: '广州-深圳',
           YZ_tb: '0',
+          start:'广州',
+          end:'深圳',
         },
           {
             BC_tb: 'AZ1439',
@@ -207,89 +215,56 @@
             PJ_tb: '￥90',
             XL_tb: '广州-深圳',
             YZ_tb: '0',
+            start:'广州',
+            end:'深圳',
+          }, {
+            BC_tb: 'AZ1439',
+            FC_tb: '08-27 15:30',
+            PJ_tb: '￥90',
+            XL_tb: '广州-上海',
+            YZ_tb: '0',
+            start:'广州',
+            end:'上海',
+          }, {
+            BC_tb: 'AZ1439',
+            FC_tb: '08-27 15:30',
+            PJ_tb: '￥90',
+            XL_tb: '广州-上海',
+            YZ_tb: '0',
+            start:'广州',
+            end:'上海',
+          }, {
+            BC_tb: 'FZ1439',
+            FC_tb: '08-27 15:30',
+            PJ_tb: '￥90',
+            XL_tb: '广州-深圳',
+            YZ_tb: '0',
+            start:'广州',
+            end:'深圳',
+          }, {
+            BC_tb: 'FZ1439',
+            FC_tb: '08-27 15:30',
+            PJ_tb: '￥90',
+            XL_tb: '广州-上海',
+            YZ_tb: '0',
+            start:'广州',
+            end:'上海',
           }, {
             BC_tb: 'AZ1439',
             FC_tb: '08-27 15:30',
             PJ_tb: '￥90',
             XL_tb: '广州-深圳',
             YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }, {
-            BC_tb: 'AZ1439',
-            FC_tb: '08-27 15:30',
-            PJ_tb: '￥90',
-            XL_tb: '广州-深圳',
-            YZ_tb: '0',
-          }
+            start:'广州',
+            end:'深圳',
+          },
         ],
         tableData:[],
         schfilter: '',
         value1: '',
+        input_end:'',
+        input_init:'',
+        input_shift:'',
       }
     },
     methods: {
@@ -307,12 +282,16 @@
           .catch(_ => {});
       },
       keywordFilter() {
-        let val = this.schfilter;
-        if (val ==''){
+        let input_init = this.input_init;
+        let input_end = this.input_end;
+        let input_shift = this.input_shift;
+
+        if (input_init =='' && input_end =='' && input_shift =='') {
           this.tableData = this.tableData5;
-        } else {
+        }else{
           this.tableData = this.tableData5.filter(item => (
-            !item.busnub_tb.indexOf(val)))
+            !(item.start.indexOf(input_init))&&!(item.end.indexOf(input_end))&&!(item.BC_tb.indexOf(input_shift)))
+          )
         }
       },
       tableFilter() {
@@ -320,7 +299,13 @@
       }
     },
     watch: {
-      schfilter(){
+      input_init(){
+        this.tableFilter();
+      },
+      input_end(){
+        this.tableFilter();
+      },
+      input_shift(){
         this.tableFilter();
       }
     },
