@@ -39,7 +39,7 @@ const TicketReserved = r => require.ensure([], () => r(require('@/mods/ticket/re
 const UsermngPane = r => require.ensure([], () => r(require('@/mods/usermng/Pane')),'usermng');
 const UsermngUsermng = r => require.ensure([], () => r(require('@/mods/usermng/User')),'usermng');
 const UsermngRegistCheck = r => require.ensure([], () => r(require('@/mods/usermng/registCheck')),'usermng');
-
+const UsermngPropertyMng = r => require.ensure([], () => r(require('@/mods/usermng/propertyMng')),'usermng');
 
 const UserPane = r => require.ensure([], () => r(require('@/mods/user/Pane')), 'sell');
 const UserLogin = r => require.ensure([], () => r(require('@/mods/user/Login')), 'sell');
@@ -210,6 +210,10 @@ let routes = [
       {
         path: 'registCheck',
         component: UsermngRegistCheck
+      },
+      {
+        path: 'propertyMng',
+        component: UsermngPropertyMng
       },
     ]
   },

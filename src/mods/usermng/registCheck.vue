@@ -14,67 +14,92 @@
         </el-col>
         <el-col :span="4"><div class="grid-content bg-purple-dark">
           <el-button type="success" plain @click="dialogVisible = true">添 加</el-button>
-          <template>
-
+          <!--<template>-->
+          <!--添加用户dialog-->
             <el-dialog
               title="添加用户"
               :visible.sync="dialogVisible"
-              width="30%"
-              :before-close="handleClose">
+              width="30%">
               <el-row style="margin: 10px;">
                 <el-col :span="24" style="padding-bottom: 10px">
-                  <el-input placeholder="单 位 名 称"  v-model="name_numb" clearable></el-input>
+                  <el-input placeholder="单 位 名 称"  v-model="input_where" clearable></el-input>
                 </el-col>
                 <el-col :span="24" style="padding-bottom: 10px">
-                  <el-input placeholder="姓 名"  v-model="name_numb" clearable></el-input>
+                  <el-input placeholder="姓 名"  v-model="input_name" clearable></el-input>
                 </el-col>
                 <el-col :span="24" style="padding-bottom: 10px">
-                  <el-input placeholder="手 机 号 码"  v-model="name_numb" clearable></el-input>
+                  <el-input placeholder="手 机 号 码"  v-model="input_numb" clearable></el-input>
                 </el-col>
                 <el-col :span="24">
-                  <!--<el-input placeholder="手 机 号 码"  v-model="name_numb" clearable></el-input>-->
-                  <el-dropdown>
-                    <el-button type="primary">
-                      更多菜单<i class="el-icon-arrow-down el-icon--right"></i>
-                    </el-button>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>黄金糕</el-dropdown-item>
-                      <el-dropdown-item>狮子头</el-dropdown-item>
-                      <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                      <el-dropdown-item>双皮奶</el-dropdown-item>
-                      <el-dropdown-item>蚵仔煎</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-
-                      <!--<el-dropdown-item>车 方 用 户</el-dropdown-item>-->
-                      <!--<el-dropdown-item>站 务 员 工</el-dropdown-item>-->
-                      <!--<el-dropdown-item>站 务 主 任</el-dropdown-item>-->
-                      <!--<el-dropdown-item>票 务 员 工</el-dropdown-item>-->
-                      <!--<el-dropdown-item>票 务 主 任</el-dropdown-item>-->
-                      <!--<el-dropdown-item>营 运 经 理</el-dropdown-item>-->
-
+                    <el-dropdown @command="handleCommand">
+                      <el-button type="primary" style="width: 100%" plain >
+                        {{play}}<i class="el-icon-arrow-down el-icon--right"></i>
+                      </el-button>
+                      <el-dropdown-menu slot="dropdown"  hide-on-click="true">
+                        <el-dropdown-item command="车 方 用 户">车 方 用 户</el-dropdown-item>
+                        <el-dropdown-item command="站 务 员 工">站 务 员 工</el-dropdown-item>
+                        <el-dropdown-item command="站 务 主 任">站 务 主 任</el-dropdown-item>
+                        <el-dropdown-item command="票 务 员 工">票 务 员 工</el-dropdown-item>
+                        <el-dropdown-item command="票 务 主 任">票 务 主 任</el-dropdown-item>
+                        <el-dropdown-item command="营 运 经 理">营 运 经 理</el-dropdown-item>
+                      </el-dropdown-menu>
+                    </el-dropdown>
                 </el-col>
               </el-row>
-
               <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+                <el-button type="primary" @click="add(); dialogVisible = false">确 定</el-button>
               </span>
             </el-dialog>
-          </template>
+          <!--</template>-->
         </div>
         </el-col>
       </el-row>
     </div>
 
-
-
     <div style="margin-top: 20px">
+      <!--修改用户dialog-->
+      <el-dialog
+        title="修改用户"
+        :visible.sync="dialogAlter"
+        width="30%">
+        <el-row style="margin: 10px;">
+          <el-col :span="24" style="padding-bottom: 10px">
+            <el-input placeholder="单 位 名 称"  v-model="input_where" clearable></el-input>
+          </el-col>
+          <el-col :span="24" style="padding-bottom: 10px">
+            <el-input placeholder="姓 名"  v-model="input_name" clearable></el-input>
+          </el-col>
+          <el-col :span="24" style="padding-bottom: 10px">
+            <el-input placeholder="手 机 号 码"  v-model="input_numb" clearable></el-input>
+          </el-col>
+          <el-col :span="24">
+            <el-dropdown @command="handleCommand">
+              <el-button type="primary" style="width: 100%" plain >
+                {{play}}<i class="el-icon-arrow-down el-icon--right"></i>
+              </el-button>
+              <el-dropdown-menu slot="dropdown"  hide-on-click="true">
+                <el-dropdown-item command="车 方 用 户">车 方 用 户</el-dropdown-item>
+                <el-dropdown-item command="站 务 员 工">站 务 员 工</el-dropdown-item>
+                <el-dropdown-item command="站 务 主 任">站 务 主 任</el-dropdown-item>
+                <el-dropdown-item command="票 务 员 工">票 务 员 工</el-dropdown-item>
+                <el-dropdown-item command="票 务 主 任">票 务 主 任</el-dropdown-item>
+                <el-dropdown-item command="营 运 经 理">营 运 经 理</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </el-col>
+        </el-row>
+        <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogAlter = false">取 消</el-button>
+                <el-button type="primary" @click="add(); dialogAlter = false">确 定</el-button>
+              </span>
+      </el-dialog>
       <el-table
         :data="tableData"
         height="550"
         highlight-current-row
         stripe
+        @cell-click="alter(); dialogAlter = true"
         style="width: 100%">
         <el-table-column type="expand">
           <template slot-scope="props">
@@ -135,6 +160,20 @@
     data() {
       return {
         dialogVisible: false,
+        dialogAlter: false,
+
+        // carUser: '',
+        // stationStaff: '',
+        // stationDiractor: '',
+        // ticketStaff: '',
+        // ticketDiractor: '',
+        // OM: '',
+        play:'请选择您的角色',
+
+        input_name: '',
+        input_where: '',
+        input_numb: '',
+
         tableData5: [
           {
             name_tb: 'XXX',
@@ -172,25 +211,39 @@
       // formatTooltip(val) {
       //   return val / 100;
       // },
-      handleClose(done) {
-        this.$confirm('确认关闭？')
-          .then(_ => {
-            done();
-          })
-          .catch(_ => {});
+      alter(row) {
+
+
       },
-      // add() {
-      //   this.tableData5.push(
-      //     {
-      //       name_tb: 'AAA',
-      //       play_tb: '车方用户',
-      //       numb_tb: '002',
-      //       where_tb: 'XXX单位',
-      //       phone_tb: '13560049565',np
-      //     }
-      //   );
-      //   this.tableData = this.tableData5;
+      handleCommand(command) {
+        this.play = command;
+      },
+      // handleClose(done) {
+      //   this.$confirm('确认关闭？')
+      //     .then(_ => {
+      //       done();
+      //     })
+      //     .catch(_ => {});
       // },
+      add() {
+        this.input_name='';
+        this.input_numb='';
+        this.input_where='';
+        this.play='';
+        this.tableData5.push(
+          {
+            name_tb:this.input_name,
+            phone_tb:this.input_numb,
+            where_tb:this.input_where,
+            play_tb:this.play,
+          }
+        );
+        this.tableData = this.tableData5;
+        // this.$confirm('确认关闭？')
+        //   .then(_ => {
+        //     done();        //   })
+        //   .catch(_ => {});
+      },
       deleteRow(index, rows) {
         rows.splice(index, 1);
       },
@@ -211,7 +264,17 @@
     watch: {
       name_numb(){
         this.tableFilter();
-      }
+      },
+      input_name(){
+        this.input_name = this.input_name;
+      },
+      input_where(){
+        this.input_where = this.input_where;
+      },
+      input_numb(){
+        this.input_numb = this.input_numb;
+      },
+
     },
     created(){
       this.tableData = this.tableData5;
@@ -264,12 +327,9 @@
     margin-bottom: 0;
     width: 50%;
   }
-
-
   body {
     font-family: Helvetica Neue, Arial, sans-serif;
     font-size: 14px;
     color: #444;
   }
-
 </style>

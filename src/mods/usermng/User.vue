@@ -33,12 +33,10 @@
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-refresh " style="opacity: 0.6"></i></div>
             <div class="aui-grid-label">注 册 审 核</div>
           </div>
-          <div class="aui-col-xs-4" @click="goView('/main/station')">
-            <!--<i class="aui-iconfont aui-icon-gear"></i>-->
+          <div class="aui-col-xs-4" @click="goView('/usermng/propertyMng')">
             <div style="margin-top: 5px;margin-bottom: 5px"><i class="iconfont icon-setting " style="opacity: 0.5"></i></div>
             <div class="aui-grid-label">权 限 管 理</div>
           </div>
-
         </div>
       </section>
     </div>

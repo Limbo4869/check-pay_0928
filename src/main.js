@@ -48,9 +48,9 @@ if (!window.Promise) {
 }
 
 // FastClick.attach(document.body);
-document.addEventListener && document.addEventListener('DOMContentLoaded', function () {
-  FastClick.attach(document.body);
-}, false);
+// document.addEventListener && document.addEventListener('DOMContentLoaded', function () {
+//   FastClick.attach(document.body);
+// }, false);
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
