@@ -31,8 +31,8 @@
                   <el-input placeholder="手 机 号 码"  v-model="input_numb" clearable></el-input>
                 </el-col>
                 <el-col :span="24">
-                    <el-dropdown @command="handleCommand">
-                      <el-button type="primary" style="width: 100%" plain >
+                    <el-dropdown @command="handleCommand" trigger="click">
+                      <el-button type="primary" plain style="width: 100%" >
                         {{play}}<i class="el-icon-arrow-down el-icon--right"></i>
                       </el-button>
                       <el-dropdown-menu slot="dropdown"  hide-on-click="true">
@@ -56,7 +56,6 @@
         </el-col>
       </el-row>
     </div>
-
     <div style="margin-top: 20px">
       <!--修改用户dialog-->
       <el-dialog
@@ -74,7 +73,7 @@
             <el-input placeholder="手 机 号 码"  v-model="input_numb" clearable></el-input>
           </el-col>
           <el-col :span="24">
-            <el-dropdown @command="handleCommand">
+            <el-dropdown @command="handleCommand" trigger="click">
               <el-button type="primary" style="width: 100%" plain >
                 {{play}}<i class="el-icon-arrow-down el-icon--right"></i>
               </el-button>
@@ -91,7 +90,7 @@
         </el-row>
         <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogAlter = false">取 消</el-button>
-                <el-button type="primary" @click="add(); dialogAlter = false">确 定</el-button>
+                <el-button type="primary" @click="dialogAlter = false">确 定</el-button>
               </span>
       </el-dialog>
       <el-table
@@ -146,7 +145,6 @@
         </el-table-column>
       </el-table>
     </div>
-
   </div>
 </template>
 
@@ -161,14 +159,7 @@
       return {
         dialogVisible: false,
         dialogAlter: false,
-
-        // carUser: '',
-        // stationStaff: '',
-        // stationDiractor: '',
-        // ticketStaff: '',
-        // ticketDiractor: '',
-        // OM: '',
-        play:'请选择您的角色',
+        play:'请 选 择 您 的 角 色',
 
         input_name: '',
         input_where: '',
@@ -205,16 +196,6 @@
       }
     },
     methods: {
-      // submitHandler(value) {
-      //   this.$dialog.toast({mes: `班次号：${value}`});
-      // },
-      // formatTooltip(val) {
-      //   return val / 100;
-      // },
-      alter(row) {
-
-
-      },
       handleCommand(command) {
         this.play = command;
       },
@@ -226,23 +207,26 @@
       //     .catch(_ => {});
       // },
       add() {
-        this.input_name='';
-        this.input_numb='';
-        this.input_where='';
-        this.play='';
         this.tableData5.push(
           {
             name_tb:this.input_name,
             phone_tb:this.input_numb,
             where_tb:this.input_where,
             play_tb:this.play,
-          }
+          },
         );
         this.tableData = this.tableData5;
-        // this.$confirm('确认关闭？')
-        //   .then(_ => {
-        //     done();        //   })
-        //   .catch(_ => {});
+        this.input_name='';
+        this.input_numb='';
+        this.input_where='';
+        this.play='请选择您的角色';
+      },
+      alter(row) {
+        // input_where:this.where_tb;
+        // input_name:this.name_tb;
+        // input_phone:this.phone_tb;
+        // input_play:this.play_tb;
+        console.log(row);
       },
       deleteRow(index, rows) {
         rows.splice(index, 1);
