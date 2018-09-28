@@ -1,85 +1,14 @@
 // import cfg from './cfg';
 import plugin from './plugin';
 import api from './api';
-
-//bus
-const BusPane = r => require.ensure([], () => r(require('@/mods/bus/Pane')), 'bus');
-const BusStart = r => require.ensure([], () => r(require('@/mods/bus/Start')), 'bus');
-const BusHistory = r => require.ensure([], () => r(require('@/mods/bus/History')), 'bus');
-const BusHistoryDetail = r => require.ensure([], () => r(require('@/mods/bus/HistoryDetail')), 'bus');
-
-
 const StationPane = r => require.ensure([], () => r(require('@/mods/station/Pane')),'station');
 const StationStation = r => require.ensure([],() => r(require('@/mods/station/Station')),'station');
 const StationShift = r => require.ensure([],() => r(require('@/mods/station/Shift_situation')),'station');
 const StationEffiy = r => require.ensure([],() => r(require('@/mods/station/Shift_effiy')),'station');
-const StationLater = r => require.ensure([],() => r(require('@/mods/station/later')),'station');
+// const StationLater = r => require.ensure([],() => r(require('@/mods/station/later')),'station');
 const StationWN = r => require.ensure([],() => r(require('@/mods/station/waitingNub')),'station');
-const StationLaterS = r => require.ensure([],() => r(require('@/mods/station/later_situation')),'station');
-const StationCSRflow = r => require.ensure([],() => r(require('@/mods/station/CSRflow')),'station');
-
-const CarPane = r => require.ensure([], () => r(require('@/mods/car/Pane')),'car');
-const CarCar = r => require.ensure([], () => r(require('@/mods/car/Car')),'car');
-const CarreservedSeat_ticket = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_ticket')),'car');
-const CarreservedSeat_situation = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_situation')),'car');
-const CarreservedSeat_code = r => require.ensure([], () => r(require('@/mods/car/reservedSeat_code')),'car');
-const CarTimeoutTicket = r => require.ensure([], () => r(require('@/mods/car/TimeoutTicket')),'car');
-const CarreportQuery = r => require.ensure([], () => r(require('@/mods/car/reportQuery')),'car');
-const CarticketQuery = r => require.ensure([], () => r(require('@/mods/car/ticketQuery')),'car');
-const CarcheckTicket = r => require.ensure([], () => r(require('@/mods/car/checkTicket')),'car');
-
-
-
-const TicketPane = r => require.ensure([], () => r(require('@/mods/ticket/Pane')),'ticket');
-const TicketTicket = r => require.ensure([], () => r(require('@/mods/ticket/Ticket')),'ticket');
-const TicketTicket_info = r => require.ensure([], () => r(require('@/mods/ticket/Ticket_info')),'ticket');
-const TicketConductor = r => require.ensure([], () => r(require('@/mods/ticket/conductor')),'ticket');
-const TicketReserved = r => require.ensure([], () => r(require('@/mods/ticket/reservedSeat_sell')),'ticket');
-
-const UsermngPane = r => require.ensure([], () => r(require('@/mods/usermng/Pane')),'usermng');
-const UsermngUsermng = r => require.ensure([], () => r(require('@/mods/usermng/User')),'usermng');
-const UsermngRegistCheck = r => require.ensure([], () => r(require('@/mods/usermng/registCheck')),'usermng');
-const UsermngPropertyMng = r => require.ensure([], () => r(require('@/mods/usermng/propertyMng')),'usermng');
-
-const UserPane = r => require.ensure([], () => r(require('@/mods/user/Pane')), 'sell');
-const UserLogin = r => require.ensure([], () => r(require('@/mods/user/Login')), 'sell');
-const UserPsger = r => require.ensure([], () => r(require('@/mods/user/Psger')), 'sell');
-const UserProfile = r => require.ensure([], () => r(require('@/mods/user/Profile')), 'sell');
-const UserRegist = r => require.ensure([], () => r(require('@/mods/user/Regist')), 'sell');
-
-// const Term = r => require.ensure([], () => r(require('@/mods/info/Term')), 'sell');
-const MktPane = r => require.ensure([], () => r(require('@/mods/mkt/Pane')), 'sell');
-
-// const AdminPane = r => require.ensure([], () => r(require('@/mods/admin/Pane')), 'admin');
-// const AdminPane = r => require.ensure([], () => r(require('@/mods/admin/AdminPane')), 'admin');
 
 let routes = [
-  //{path: '/', alias: 'home', component: Index},
-
-  {
-    path: '/bus',
-    component: BusPane,
-    meta: {
-      title: '购票'
-    },
-    beforeEnter: (to, from, next) => {
-      next(vm => {});
-    },
-    children: [
-      {
-        path: 'start',
-        component: BusStart
-      },
-      {
-        path: 'history',
-        component: BusHistory
-      },
-      {
-        path: 'historydetail',
-        component: BusHistoryDetail
-      }
-    ]
-  },
   {
     path: '/station',
     component: StationPane,
@@ -103,120 +32,12 @@ let routes = [
         component: StationEffiy
       },
       {
-        path: 'later',
-        component: StationLater
-      },
-      {
         path: 'WaitingNub',
         component: StationWN
       },
-      {
-        path: 'later_situation',
-        component: StationLaterS
-      },
-      {
-        path: 'CSRflow',
-        component: StationCSRflow
-      },
     ]
   },
-  {
-    path: '/car',
-    component: CarPane,
-    meta: {
-      title: '车方业务'
-    },
-    beforeEnter: (to, from, next) => {
-      next(vm => {});
-    },
-    children: [
-      {
-        path: 'car',
-        component: CarCar
-      },
-      {
-        path: 'reservedSeat_ticket',
-        component: CarreservedSeat_ticket
-      },
-      {
-        path: 'reservedSeat_situation',
-        component: CarreservedSeat_situation
-      },
-      {
-        path: 'reservedSeat_code',
-        component: CarreservedSeat_code
-      },
-      {
-        path: 'TimeoutTicket',
-        component: CarTimeoutTicket
-      },
-      {
-        path: 'reportQuery',
-        component: CarreportQuery
-      },
-      {
-        path: 'ticketQuery',
-        component: CarticketQuery
-      },
-      {
-        path: 'checkTicket',
-        component: CarcheckTicket
-      }
-    ]
-  },
-  {
-    path: '/ticket',
-    component: TicketPane,
-    meta: {
-      title: '票务'
-    },
-    beforeEnter: (to, from, next) => {
-      next(vm => {});
-    },
-    children: [
-      {
-        path: 'Ticket',
-        component: TicketTicket
-      },
-      {
-        path: 'conductor',
-        component: TicketConductor
-      },
-      {
-        path: 'Ticket_info',
-        component: TicketTicket_info
-      },
-      {
-        path: 'ReservedSeat_sell',
-        component: TicketReserved
-      },
 
-    ]
-  },
-  {
-    path: '/usermng',
-    component: UsermngPane,
-    meta: {
-      title: '用户管理'
-    },
-    beforeEnter: (to, from, next) => {
-      next(vm => {});
-    },
-    children: [
-      {
-        path: 'User',
-        component: UsermngUsermng
-      },
-      {
-        path: 'registCheck',
-        component: UsermngRegistCheck
-      },
-      {
-        path: 'propertyMng',
-        component: UsermngPropertyMng
-      },
-    ]
-  },
 
 
   // {
@@ -243,60 +64,62 @@ let routes = [
   //   ]
   // },
 
-  {
-    path: '/user',
-    component: UserPane,
-    // meta: {
-    //   title: '我的'
-    // },
-    beforeEnter: (to, from, next) => {
-      next(vm => {});
-    },
-    children: [{
-        path: 'info',
-        component: UserProfile,
-        meta: {
-          title: '用户信息'
-        }
-      },
-      {
-        path: 'psger',
-        component: UserPsger,
-        meta: {
-          title: '乘客信息'
-        }
-      },
-      {
-        path: 'login',
-        component: UserLogin,
-        meta: {
-          title: '登录'
-        }
-      },
-      {
-        path: 'regist',
-        component: UserRegist,
-        meta: {
-          title: '注册'
-        }
-      }
-
-    ]
-  },
-  {
-    path: '/mkt',
-    meta: {
-      title: '更多'
-    },
-    component: MktPane,
-    beforeEnter: (to, from, next) => {
-      next(vm => {});
-    }
-  },
+  // {
+  //   path: '/user',
+  //   component: UserPane,
+  //   // meta: {
+  //   //   title: '我的'
+  //   // },
+  //   beforeEnter: (to, from, next) => {
+  //     next(vm => {});
+  //   },
+  //   children: [{
+  //       path: 'info',
+  //       component: UserProfile,
+  //       meta: {
+  //         title: '用户信息'
+  //       }
+  //     },
+  //     {
+  //       path: 'psger',
+  //       component: UserPsger,
+  //       meta: {
+  //         title: '乘客信息'
+  //       }
+  //     },
+  //     {
+  //       path: 'login',
+  //       component: UserLogin,
+  //       meta: {
+  //         title: '登录'
+  //       }
+  //     },
+  //     {
+  //       path: 'regist',
+  //       component: UserRegist,
+  //       meta: {
+  //         title: '注册'
+  //       }
+  //     }
+  //
+  //   ]
+  // },
+  // {
+  //   path: '/mkt',
+  //   meta: {
+  //     title: '更多'
+  //   },
+  //   component: MktPane,
+  //   beforeEnter: (to, from, next) => {
+  //     next(vm => {});
+  //   }
+  // },
   //重定向
   {
     path: '*',
-    redirect: '/user/login'
+    // redirect: '/user/login'
+    redirect: '/station/Shift_situation'
+
   }
 ];
 

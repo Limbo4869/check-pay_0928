@@ -1,7 +1,7 @@
 <template>
   <div>
-    <yd-navbar title="班次情况" style="margin-bottom: 10px">
-      <div slot="left" @click="goView('/station/station')" class="iconfont icon-back"></div>
+    <yd-navbar title="移动支付线上检测情况" style="margin-bottom: 10px">
+      <!--<div slot="left" @click="goView('/station/station')" class="iconfont icon-back"></div>-->
       <!--<div slot="right" @click="goView('/bus/history')" class="el-icon-search"></div>-->
     </yd-navbar>
 
@@ -9,7 +9,7 @@
       <el-row :gutter="10">
         <el-col :span="24"><div class="grid-content bg-purple-dark" style="margin: auto 10px">
           <!--<yd-search v-model="value1" :on-submit="submitHandler" placeholder="班次号"  cancel-text></yd-search>-->
-          <el-input placeholder="班次号"  v-model="schfilter" clearable>
+          <el-input placeholder="请输入地市或客运站"  v-model="schfilter" clearable>
           </el-input>
         </div></el-col>
       </el-row>
@@ -44,28 +44,92 @@
         <el-table-column type="expand">
           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="班次号">
-                <span>{{ props.row.busnub_tb }}</span>
+              <el-form-item label="上线时间">
+                <span>{{ props.row.onlineTime_tb }}</span>
               </el-form-item>
-              <el-form-item label="计划">
-                <span>{{ props.row.plan_tb }}</span>
+              <el-form-item label="站级">
+                <span>{{ props.row.stationLevel_tb }}</span>
               </el-form-item>
-              <el-form-item label="日期">
-                <span>{{ props.row.time_tb }}</span>
+              <el-form-item label="沟通支付">
+                <span>{{ props.row.commPay_tb }}</span>
               </el-form-item>
-              <el-form-item label="状态">
-                <span>{{ props.row.state_tb }}</span>
+              <el-form-item label="窗口保险">
+                <span>{{ props.row.winInsurance_tb }}</span>
               </el-form-item>
-              <el-form-item label="车型">
+              <el-form-item label="pad数量">
                 <span>{{ props.row.car_tb  }}</span>
               </el-form-item>
-              <el-form-item label="报班">
+              <el-form-item label="使用数量">
                 <span>{{ props.row.shift_tb }}</span>
               </el-form-item>
-              <el-form-item label="结算">
+              <el-form-item label="数据交易">
+                <span>{{ props.row.dataTime_tb }}</span>
+              </el-form-item>
+              <el-form-item label="商品号码">
+                <span>{{ props.row.productNum_tb }}</span>
+              </el-form-item>
+
+              <el-form-item label="移动支付">
+                <span></span>
+              </el-form-item>
+              <el-form-item label="   ">
+                <span></span>
+              </el-form-item>
+              <el-form-item label="售票数量">
                 <span>{{ props.row.count_tb }}</span>
               </el-form-item>
-              <el-form-item label="准/已/结">
+              <el-form-item label="售票金额">
+                <span>{{ props.row.numb_tb }}</span>
+              </el-form-item>
+              <el-form-item label="退票数量">
+                <span>{{ props.row.count_tb }}</span>
+              </el-form-item>
+              <el-form-item label="退票金额">
+                <span>{{ props.row.numb_tb }}</span>
+              </el-form-item>
+              <el-form-item label="退保数量">
+                <span>{{ props.row.count_tb }}</span>
+              </el-form-item>
+              <el-form-item label="退保金额">
+                <span>{{ props.row.numb_tb }}</span>
+              </el-form-item>
+
+              <el-form-item label="现金保险">
+                <span></span>
+              </el-form-item>
+              <el-form-item label="   ">
+                <span></span>
+              </el-form-item>
+              <el-form-item label="购保数量">
+                <span>{{ props.row.count_tb }}</span>
+              </el-form-item>
+              <el-form-item label="购保金额">
+                <span>{{ props.row.numb_tb }}</span>
+              </el-form-item>
+              <el-form-item label="退保数量">
+                <span>{{ props.row.count_tb }}</span>
+              </el-form-item>
+              <el-form-item label="退保金额">
+                <span>{{ props.row.numb_tb }}</span>
+              </el-form-item>
+
+
+              <el-form-item label="站务系统">
+                <span></span>
+              </el-form-item>
+              <el-form-item label="   ">
+                <span></span>
+              </el-form-item>
+              <el-form-item label="售票数量">
+                <span>{{ props.row.count_tb }}</span>
+              </el-form-item>
+              <el-form-item label="售票金额">
+                <span>{{ props.row.numb_tb }}</span>
+              </el-form-item>
+              <el-form-item label="退票数量">
+                <span>{{ props.row.count_tb }}</span>
+              </el-form-item>
+              <el-form-item label="退票金额">
                 <span>{{ props.row.numb_tb }}</span>
               </el-form-item>
 
@@ -73,16 +137,16 @@
           </template>
         </el-table-column>
         <el-table-column
-          label="日期"
-          prop="time_tb">
+          label="序号"
+          prop="serialNum_tb">
         </el-table-column>
         <el-table-column
-          label="状态"
-          prop="state_tb">
+          label="地市"
+          prop="city_tb">
         </el-table-column>
         <el-table-column
-          label="准 /已 /结"
-          prop="numb_tb">
+          label="客运站"
+          prop="station_tb">
         </el-table-column>
       </el-table>
     </div>
@@ -101,148 +165,21 @@
       return {
 
         tableData5: [{
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-15',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'AZ432'
+          station_tb: '汕头市汽车客运站',
+          city_tb: '汕头',
+          dataTime_tb: '10-15',
         },
           {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-12',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'GZ4321'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-30',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'BC4321'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-08',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'AZ5691'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-05',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'AZ4918'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-09',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'KO4321'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-10',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'GZ4321'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-19',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'AZ432'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-24',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'YH432'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-26',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'YH8530'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-22',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'HY3064'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-10',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'KO4321'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-09',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'KO4321'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-08',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'TY4321'
-        }, {
-          shift_tb: '14:39',
-          plan_tb: '15:30',
-          time_tb: '08-02',
-          state_tb: '发',
-          numb_tb: '59 / 20 / 20',
-          car_tb: '座',
-          count_tb: '14:50',
-          busnub_tb:'TY4321'
-        }
+          station_tb: '韶关市汽车客运站',
+          city_tb: '韶关',
+          dataTime_tb: '10-15',
+        },
         ],
         tableData:[],
         schfilter: '',
         value1: '',
-        datetime0: '08-08',
-        datetime1: '08-16',
+        datetime0: '10-02',
+        datetime1: '10-28',
       }
     },
     methods: {
@@ -257,7 +194,7 @@
           let year = new Date().getFullYear();
           let start = new Date(year + '-' + this.datetime0).getTime();
           let end = new Date(year + '-' + this.datetime1).getTime();
-          let item_data = new Date(year + '-' + item.time_tb).getTime();
+          let item_data = new Date(year + '-' + item.dataTime_tb).getTime();
           return start <= item_data && item_data <= end;
         });
       },
@@ -267,7 +204,8 @@
           this.tableData = this.tableData5;
         }else{
           this.tableData = this.tableData5.filter(item => (
-            !item.busnub_tb.indexOf(val)))
+            (!item.city_tb.indexOf(val))||(!item.station_tb.indexOf(val))
+          ))
           }
         },
       tableFilter() {

@@ -31,10 +31,10 @@ import api from './api';
 
 // import NPage from '@/components/NPage.vue';
 // import NHeader from '@/components/NHeader.vue';
-import NCalendar from '@/components/NCalendar.vue';
+// import NCalendar from '@/components/NCalendar.vue';
 // import NMap from '@/mods/dict/NMap.vue';
 
-import Psger from './mods/user/Psger.vue';
+// import Psger from './mods/user/Psger.vue';
 
 // Vue.use(Lazyload);
 // Vue.use(InfiniteScroll);
@@ -482,8 +482,8 @@ let plugin = {
 
 
         //
-        'n-calendar': NCalendar,
-        'n-psger': Psger
+        // 'n-calendar': NCalendar,
+        // 'n-psger': Psger
       },
       // directives: {},
       data () {
